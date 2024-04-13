@@ -4,11 +4,13 @@ import { useEffect, useState } from "react";
 import { nanoid } from "nanoid";
 import { RollableDie } from "../types";
 import DiceSection from "@/components/dice-section";
+import ScorecardSection from "@/components/scorecard-section";
 
 export default function Page() {
   const [rollsLeft, setRollsLeft] = useState(2);
   const [pointsSubmitted, setPointsSubmitted] = useState(false);
   const [dice, setDice] = useState<RollableDie[]>([]);
+  const [score, setScore] = useState(0);
 
   const rollDuration = 1000;
 
@@ -82,10 +84,10 @@ export default function Page() {
   
   }
 
-  const markScore = () =>
+  const markScore = (score: number) =>
   {
     // doublecheck that a points section box is checked
-    // add points to total score
+    setScore(prevScore => prevScore + score);
     // disable the selected points section box
     // (maybe) add styling to the submitted points in the scorecard
 
@@ -112,21 +114,7 @@ export default function Page() {
       <div className="help-button"></div>
       {/* <div>TODO: initial state - instructions & play button</div> */}
       <DiceSection dice={dice} rollsLeft={rollsLeft} arePointsSubmitted={pointsSubmitted} toggleIsHeld={setHeld} rollDice={rollDice} />
-      <div className="scorecard-section">
-        <div className="scorecard">
-          <div className="left-scorecard">
-            [todo]
-          </div>
-          <div className="right-scorecard">
-            [todo]
-          </div>
-        </div>
-        <div className="score-report-section">
-          <span>Total Score: ###</span>
-          <span>High Score: ###</span>
-        </div>
-        <button className="action-button" onClick={markScore}>Confirm</button>
-      </div>
+      <ScorecardSection dice={dice} score={score} markScore={markScore} />
     </div>
   )
 }
