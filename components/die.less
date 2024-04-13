@@ -1,19 +1,17 @@
-.die-face {
-    display: flex;
-    flex-direction: column;
+@rotation-delay: .15s;
+@rotation-duration: 1s;
+@rotation: rotating @rotation-duration ease infinite;
+
+.die {
     width: 4.375rem;
     height: 4.375rem;
-    justify-content: space-between;
     padding: 0.75rem;
     box-sizing: border-box;
     border-radius: 0.188rem;
+    background-color: #FFF;
 
-    &.unlocked {
-        background-color: #FFF;
-
-        .dot {
-            background-color: #394158;
-        }
+    .dot {
+        background-color: #394158;
     }
 
     &.locked {
@@ -23,31 +21,117 @@
             background-color: #FFF;
         }
     }
+    
+    .dot {
+        height: 0.625rem;
+        width: 0.625rem;
+        border-radius: 0.625rem;
+    }
 
-    .top-row, .middle-row, .bottom-row {
+    .die-face {
+        height: 100%;
+        width: 100%;
         display: flex;
+        flex-direction: column;
         justify-content: space-between;
 
-        .dot {
-            height: 0.625rem;
-            width: 0.625rem;
-            border-radius: 0.625rem;
+        .top-row, .middle-row, .bottom-row {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        &.diagonal {
+            .top-row {
+                justify-content: flex-start;
+            }
+            
+            .bottom-row {
+                justify-content: flex-end;
+            }
+        }
+
+        .middle-row {
+            &.odd {
+                justify-content: center;
+            }
         }
     }
 
-    &.diagonal {
-        .top-row {
-            justify-content: flex-start;
+    // Source: https://stackoverflow.com/questions/6410730/css-endless-rotation-animation
+    @-webkit-keyframes rotating /* Safari and Chrome */ {
+        from {
+          -webkit-transform: rotate(0deg);
+          -o-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        to {
+          -webkit-transform: rotate(360deg);
+          -o-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes rotating {
+        from {
+          -ms-transform: rotate(0deg);
+          -moz-transform: rotate(0deg);
+          -webkit-transform: rotate(0deg);
+          -o-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        to {
+          -ms-transform: rotate(360deg);
+          -moz-transform: rotate(360deg);
+          -webkit-transform: rotate(360deg);
+          -o-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+    
+    .rolling-face {
+        height: 100%;
+        width: 100%;
+        position: relative;
+
+        .dot-container {
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            
+            -webkit-animation: @rotation;
+            -moz-animation: @rotation;
+            -ms-animation: @rotation;
+            -o-animation: @rotation;
+            animation: @rotation;
+        }
+
+        .delay {
+            z-index: 1;
+            animation-delay: @rotation-delay;
+        }
+
+        .delay2 {
+            z-index: 2;
+            animation-delay: @rotation-delay*2;
+        }
+
+        .delay3 {
+            z-index: 3;
+            animation-delay: @rotation-delay*3;
+        }
+
+        .delay4 {
+            z-index: 4;
+            animation-delay: @rotation-delay*4;
         }
         
-        .bottom-row {
-            justify-content: flex-end;
-        }
-    }
-
-    .middle-row {
-        &.odd {
-            justify-content: center;
+        .delay5 {
+            z-index: 5;
+            animation-delay: @rotation-delay*5;
         }
     }
 }

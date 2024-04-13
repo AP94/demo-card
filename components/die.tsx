@@ -4,30 +4,23 @@ export interface DieData {
     id: string;
     value: number;
     isHeld: boolean;
+    isRolling: boolean;
     toggleSelect: (id: string) => void;
 }
 
 export default function Die(data: DieData) {
-    let dieClassName = "die-face";
-    if (data.value < 4)
-    {
-        dieClassName = dieClassName + " diagonal";
-    }
-    if (data.isHeld)
-    {
-        dieClassName = dieClassName + " locked";
-    }
-    else
-    {
-        dieClassName = dieClassName + " unlocked";
-    }
+
+    const dieClassName = data.isHeld? "die locked" : "die";
 
     const handleClick = () => {
-        data.toggleSelect(data.id);
+        if (!data.isRolling)
+        {
+            data.toggleSelect(data.id);
+        }
     }
 
-    return (
-        <div className={dieClassName} onClick={handleClick}>
+    const dotsElement = (
+        <div className={data.value < 4 ? "die-face diagonal" : "die-face"}>
             <div className="top-row">
                 {data.value > 1 && <div className="dot" />}
                 {data.value > 3 && <div className="dot" />}
@@ -41,6 +34,35 @@ export default function Die(data: DieData) {
                 {data.value > 3 && <div className="dot" />}
                 {data.value > 1 && <div className="dot" />}
             </div>
+        </div>
+    );
+
+    const rollingElement = (
+        <div className="rolling-face">
+            <div className="dot-container">
+                <div className="dot" />
+            </div>
+            <div className="dot-container delay">
+                <div className="dot" />
+            </div>
+            <div className="dot-container delay2">
+                <div className="dot" />
+            </div>
+            <div className="dot-container delay3">
+                <div className="dot" />
+            </div>
+            <div className="dot-container delay4">
+                <div className="dot" />
+            </div>
+            <div className="dot-container delay5">
+                <div className="dot" />
+            </div>
+        </div>
+    )
+
+    return (
+        <div className={dieClassName} onClick={handleClick}>
+            {data.isRolling ? rollingElement : dotsElement}
         </div>
     )
 }

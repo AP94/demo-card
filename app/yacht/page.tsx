@@ -12,42 +12,80 @@ interface RollableDie {
 }
 
 export default function Page() {
-  const [rollsLeft, setRollsLeft] = useState(3);
+  const [rollsLeft, setRollsLeft] = useState(2);
   const [pointsSubmitted, setPointsSubmitted] = useState(false);
   const [dice, setDice] = useState<RollableDie[]>([]);
+
+  const rollDuration = 1000;
 
   const generateDie = () => {
     return {
       value: Math.ceil(Math.random() * 6), 
-    isHeld: false,
-    isRolling: false,
-    id: nanoid()
+      isHeld: false,
+      isRolling: true,
+      id: nanoid()
     }
   }
 
-  useEffect(() => {
+  const rollAllDice = () => {
     let dice: RollableDie[] = [];
     for (let i = 0; i < 5; i++) {
       dice.push(generateDie());
     }
     setDice(dice);
+
+    setTimeout(() => {
+      setDice(prevDice => prevDice.map(die => {
+        return {...die, isRolling: false}
+      }))
+    })
+  }
+
+  useEffect(() => {
+    rollAllDice();
   }, []);
 
   const rollDice = () => {
-    setPointsSubmitted(false);
+    if (pointsSubmitted) {
+      setPointsSubmitted(false);
+      rollAllDice();
+    }
 
-    // roll dice
-
-    setRollsLeft((prevRollsLeft) => {
-      if (prevRollsLeft > 0)
-      {
-        return prevRollsLeft - 1;
-      }
-      else
-      {
-        return 3;
-      }
-    })
+    else {
+      // roll dice
+      setDice(prevDice => prevDice.map(die => {
+        return die.isHeld ?
+          die :
+          {...die,
+            value: Math.ceil(Math.random() * 6),
+            isRolling: true
+          }
+      }));
+  
+      // update rolls left
+      setRollsLeft((prevRollsLeft) => {
+        if (prevRollsLeft > 0)
+        {
+          return prevRollsLeft - 1;
+        }
+        else
+        {
+          return 2;
+        }
+      })
+    }
+  
+    // after 0.5 seconds, finish "rolling"
+    setTimeout(() => {
+      setDice(prevDice => prevDice.map(die => {
+        return die.isRolling ?
+          {...die,
+            isRolling: false
+          } :
+          die
+      }));
+    }, rollDuration);
+  
   }
 
   const markScore = () =>
@@ -58,12 +96,19 @@ export default function Page() {
     // (maybe) add styling to the submitted points in the scorecard
 
     setPointsSubmitted(true);
-    setRollsLeft(3);
+    setRollsLeft(2);
+    setDice(prevDice => prevDice.map(die => {
+      return die.isRolling ?
+        {...die,
+          isHeld: false
+        } :
+        die
+    }));
   }
 
   const setHeld = (id: string) => {
     console.log(id);
-    setDice(oldDice => oldDice.map(die => {
+    setDice(prevDice => prevDice.map(die => {
         return die.id === id ? 
             {...die, isHeld: !die.isHeld} :
             die
@@ -71,8 +116,7 @@ export default function Page() {
   }
 
   const diceElements = dice.map(die => (
-    die.isRolling ? <div className="rolling-die" /> :
-    <Die key={die.id} id={die.id} value={die.value} isHeld={die.isHeld} toggleSelect={setHeld}></Die>
+    <Die key={die.id} id={die.id} value={die.value} isHeld={die.isHeld} isRolling={die.isRolling} toggleSelect={setHeld}></Die>
   ));
 
   return (
@@ -95,9 +139,9 @@ export default function Page() {
         </div>
         <button className="action-button" onClick={rollDice} disabled={rollsLeft < 1 && !pointsSubmitted}>Roll</button>
         <div className="roll-tracking">
-          <div className={rollsLeft > 2 ? 'roll-box active' : 'roll-box inactive'}></div>
-          <div className={rollsLeft > 1 ? 'roll-box active' : 'roll-box inactive'}></div>
-          <div className={rollsLeft > 0 ? 'roll-box active' : 'roll-box inactive'}></div>
+          <div className={rollsLeft < 3 ? 'roll-box active' : 'roll-box inactive'}></div>
+          <div className={rollsLeft < 2 ? 'roll-box active' : 'roll-box inactive'}></div>
+          <div className={rollsLeft < 1 ? 'roll-box active' : 'roll-box inactive'}></div>
         </div>
       </div>
       <div className="scorecard-section">
