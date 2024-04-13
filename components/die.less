@@ -1,0 +1,53 @@
+.die-face {
+    display: flex;
+    flex-direction: column;
+    width: 4.375rem;
+    height: 4.375rem;
+    justify-content: space-between;
+    padding: 0.75rem;
+    box-sizing: border-box;
+    border-radius: 0.188rem;
+
+    &.unlocked {
+        background-color: #FFF;
+
+        .dot {
+            background-color: #394158;
+        }
+    }
+
+    &.locked {
+        background-color: #394158;
+
+        .dot {
+            background-color: #FFF;
+        }
+    }
+
+    .top-row, .middle-row, .bottom-row {
+        display: flex;
+        justify-content: space-between;
+
+        .dot {
+            height: 0.625rem;
+            width: 0.625rem;
+            border-radius: 0.625rem;
+        }
+    }
+
+    &.diagonal {
+        .top-row {
+            justify-content: flex-start;
+        }
+        
+        .bottom-row {
+            justify-content: flex-end;
+        }
+    }
+
+    .middle-row {
+        &.odd {
+            justify-content: center;
+        }
+    }
+}

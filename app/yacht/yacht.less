@@ -7,6 +7,10 @@
   color: #FFF;
   font-weight: bold;
   font-size: 1.5rem;
+
+  &:disabled {
+    background-color: #9FA7BE
+  }
 }
 
 .yacht-section {
@@ -79,11 +83,38 @@
         height: 60%;
         background-color: #CCD4EB;
         border-radius: 0.313rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+
+        .dice-row {
+          height: 100%;
+          display: flex;
+          justify-content: space-around;
+          flex-direction: column;
+        }
       }
   
-      .roll-button-container {
-        .roll-tracking {
-          flex-direction: row;
+      .roll-tracking {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 12.5rem;
+
+        .roll-box {
+          height: 2.188rem;
+          width: 2.188rem;
+          border-radius: 0.188rem;
+        }
+
+        .active {
+          background-color: #4366B2;
+        }
+
+        .inactive {
+          background-color: #9FA7BE;
         }
       }
     }
