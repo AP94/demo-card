@@ -1,15 +1,9 @@
 "use client"; // This is a client component
 
 import { useEffect, useState } from "react";
-import Die from "../../components/die";
-import {nanoid} from "nanoid";
-
-interface RollableDie {
-  value: number;
-  isHeld: boolean;
-  isRolling: boolean;
-  id: string;
-}
+import { nanoid } from "nanoid";
+import { RollableDie } from "../types";
+import DiceSection from "@/components/dice-section";
 
 export default function Page() {
   const [rollsLeft, setRollsLeft] = useState(2);
@@ -98,11 +92,9 @@ export default function Page() {
     setPointsSubmitted(true);
     setRollsLeft(2);
     setDice(prevDice => prevDice.map(die => {
-      return die.isRolling ?
-        {...die,
+      return {...die,
           isHeld: false
-        } :
-        die
+        }
     }));
   }
 
@@ -115,35 +107,11 @@ export default function Page() {
     }))
   }
 
-  const diceElements = dice.map(die => (
-    <Die key={die.id} id={die.id} value={die.value} isHeld={die.isHeld} isRolling={die.isRolling} toggleSelect={setHeld}></Die>
-  ));
-
   return (
     <div className="yacht-page">
       <div className="help-button"></div>
-      <div className="dice-section">
-        <div className="dice-tray">
-            <div className="dice-row">
-              {diceElements[0]}
-              {diceElements[1]}
-            </div>
-            <div className="dice-row">
-              {diceElements[2]}
-            </div>
-            <div className="dice-row">
-              {diceElements[3]}
-              {diceElements[4]}
-            </div>
-          {/* <div>TODO: initial state - play button</div> */}
-        </div>
-        <button className="action-button" onClick={rollDice} disabled={rollsLeft < 1 && !pointsSubmitted}>Roll</button>
-        <div className="roll-tracking">
-          <div className={rollsLeft < 3 ? 'roll-box active' : 'roll-box inactive'}></div>
-          <div className={rollsLeft < 2 ? 'roll-box active' : 'roll-box inactive'}></div>
-          <div className={rollsLeft < 1 ? 'roll-box active' : 'roll-box inactive'}></div>
-        </div>
-      </div>
+      {/* <div>TODO: initial state - instructions & play button</div> */}
+      <DiceSection dice={dice} rollsLeft={rollsLeft} arePointsSubmitted={pointsSubmitted} toggleIsHeld={setHeld} rollDice={rollDice} />
       <div className="scorecard-section">
         <div className="scorecard">
           <div className="left-scorecard">

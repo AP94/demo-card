@@ -1,12 +1,5 @@
 import React from "react"
-
-export interface DieData {
-    id: string;
-    value: number;
-    isHeld: boolean;
-    isRolling: boolean;
-    toggleSelect: (id: string) => void;
-}
+import { DieData } from "@/app/types";
 
 export default function Die(data: DieData) {
 
@@ -15,7 +8,7 @@ export default function Die(data: DieData) {
     const handleClick = () => {
         if (!data.isRolling)
         {
-            data.toggleSelect(data.id);
+            data.toggleIsHeld(data.id);
         }
     }
 
