@@ -11,6 +11,7 @@ export default function Page() {
   const [pointsSubmitted, setPointsSubmitted] = useState(false);
   const [dice, setDice] = useState<RollableDie[]>([]);
   const [score, setScore] = useState(0);
+  const [isRolling, setIsRolling] = useState(false);
 
   const rollDuration = 1000;
 
@@ -24,17 +25,18 @@ export default function Page() {
   }
 
   const rollAllDice = () => {
+    setIsRolling(true);
+
     let dice: RollableDie[] = [];
     for (let i = 0; i < 5; i++) {
       dice.push(generateDie());
     }
     setDice(dice);
 
+    // after "rollDuration" seconds, finish "rolling"
     setTimeout(() => {
-      setDice(prevDice => prevDice.map(die => {
-        return {...die, isRolling: false}
-      }))
-    })
+      setIsRolling(false);
+    }, rollDuration);
   }
 
   useEffect(() => {
@@ -48,13 +50,14 @@ export default function Page() {
     }
 
     else {
+      setIsRolling(true);
+
       // roll dice
       setDice(prevDice => prevDice.map(die => {
         return die.isHeld ?
           die :
           {...die,
-            value: Math.ceil(Math.random() * 6),
-            isRolling: true
+            value: Math.ceil(Math.random() * 6)
           }
       }));
   
@@ -71,17 +74,10 @@ export default function Page() {
       })
     }
   
-    // after 0.5 seconds, finish "rolling"
+    // after "rollDuration" seconds, finish "rolling"
     setTimeout(() => {
-      setDice(prevDice => prevDice.map(die => {
-        return die.isRolling ?
-          {...die,
-            isRolling: false
-          } :
-          die
-      }));
+      setIsRolling(false);
     }, rollDuration);
-  
   }
 
   const markScore = (score: number) =>
@@ -101,7 +97,6 @@ export default function Page() {
   }
 
   const setHeld = (id: string) => {
-    console.log(id);
     setDice(prevDice => prevDice.map(die => {
         return die.id === id ? 
             {...die, isHeld: !die.isHeld} :
@@ -113,7 +108,7 @@ export default function Page() {
     <div className="yacht-page">
       <div className="help-button"></div>
       {/* <div>TODO: initial state - instructions & play button</div> */}
-      <DiceSection dice={dice} rollsLeft={rollsLeft} arePointsSubmitted={pointsSubmitted} toggleIsHeld={setHeld} rollDice={rollDice} />
+      <DiceSection dice={dice} rollsLeft={rollsLeft} arePointsSubmitted={pointsSubmitted} toggleIsHeld={setHeld} rollDice={rollDice} isRolling={isRolling} />
       <ScorecardSection dice={dice} score={score} markScore={markScore} />
     </div>
   )

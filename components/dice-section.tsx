@@ -5,7 +5,7 @@ import { DiceSectionData } from "@/app/types";
 export default function DiceSection(data: DiceSectionData) {
 
     const diceElements = data.dice.map(die => (
-        <Die key={die.id} id={die.id} value={die.value} isHeld={die.isHeld} isRolling={die.isRolling} toggleIsHeld={data.toggleIsHeld}></Die>
+        <Die key={die.id} id={die.id} value={die.value} isHeld={die.isHeld} isRolling={!die.isHeld && data.isRolling} toggleIsHeld={data.toggleIsHeld}></Die>
       ));
 
     return (

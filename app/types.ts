@@ -1,7 +1,6 @@
 export interface RollableDie {
     value: number;
     isHeld: boolean;
-    isRolling: boolean;
     id: string;
 }
 
@@ -11,6 +10,7 @@ export interface DiceSectionData {
     rollDice: () => void;
     toggleIsHeld: (id: string) => void;
     dice: RollableDie[];
+    isRolling: boolean;
 }
 
 export interface DieData {
@@ -29,7 +29,7 @@ export interface ScorecardSectionData {
 
 export enum ScoreType {
     Ones   = 1,
-    Twoes  = 2,
+    Twos  = 2,
     Threes = 3,
     Fours  = 4,
     Fives  = 5,
