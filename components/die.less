@@ -9,13 +9,23 @@
     box-sizing: border-box;
     border-radius: 0.188rem;
     background-color: #FFF;
+    cursor: pointer;
 
     .dot {
         background-color: #394158;
     }
 
     &.locked {
-        background-color: #394158;
+        background-color: #4366B2;
+
+        .dot {
+            background-color: #FFF;
+        }
+    }
+
+    &.disabled {
+        background-color: #9FA7BE;
+        cursor: default;
 
         .dot {
             background-color: #FFF;

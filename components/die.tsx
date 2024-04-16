@@ -3,10 +3,11 @@ import { DieData } from "@/app/types";
 
 export default function Die(data: DieData) {
 
-    const dieClassName = data.isHeld? "die locked" : "die";
+    const dieClassName = data.disabled? "die disabled" :
+     data.isHeld? "die locked" : "die";
 
     const handleClick = () => {
-        if (!data.isRolling)
+        if (!data.isRolling && !data.disabled)
         {
             data.toggleIsHeld(data.id);
         }

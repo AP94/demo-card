@@ -6,7 +6,6 @@ import { calculateScore } from "@/app/utils/score-calc";
 export default function ScorecardSection(data: ScorecardSectionData) {
     const initializeScoreCategory = (scoreType: ScoreType): ScoreCategory => {
         return {
-            marked: false,
             score: 0,
             scoreType: scoreType,
             submitted: false
@@ -35,39 +34,42 @@ export default function ScorecardSection(data: ScorecardSectionData) {
 
     
     useEffect(() => {
-        // for each section that hasn't been submitted, update the value
-        setNumericalScoreCategories((prevScoreCategories) => {
-            return prevScoreCategories.map((scoreCategory) => {
-                return scoreCategory.submitted ? scoreCategory :
-                    {
-                        ...scoreCategory,
-                        score: calculateScore(data.dice, scoreCategory.scoreType)
-                    }
-            })
-        });
-        setSpecialScoreCategories((prevScoreCategories) => {
-            return prevScoreCategories.map((scoreCategory) => {
-                return scoreCategory.submitted ? scoreCategory :
-                    {
-                        ...scoreCategory,
-                        score: calculateScore(data.dice, scoreCategory.scoreType)
-                    }
-            })
-        });
-    }, [data.dice]);
-
-    useEffect(() => {
-        // Whenever the selected score type is reset, uncheck the checked option
-        if (selectedScoreType === null) {
-            document.querySelectorAll('input[type=radio]').forEach((el: any) => el.checked = false );
+        if (!data.isRolling) {
+            // for each section that hasn't been submitted, update the value
+            setNumericalScoreCategories((prevScoreCategories) => {
+                return prevScoreCategories.map((scoreCategory) => {
+                    return scoreCategory.submitted ? scoreCategory :
+                        {
+                            ...scoreCategory,
+                            score: calculateScore(data.dice, scoreCategory.scoreType)
+                        }
+                })
+            });
+            setSpecialScoreCategories((prevScoreCategories) => {
+                return prevScoreCategories.map((scoreCategory) => {
+                    return scoreCategory.submitted ? scoreCategory :
+                        {
+                            ...scoreCategory,
+                            score: calculateScore(data.dice, scoreCategory.scoreType)
+                        }
+                })
+            });
         }
-    }, [selectedScoreType]);
+    }, [data.isRolling]);
 
     const onScoreSubmitted = () => {
         for (let i = 0; i < numericalScoreCategories.length; i++) {
             if (numericalScoreCategories[i].scoreType === selectedScoreType) {
                 data.markScore(numericalScoreCategories[i].score);
                 setSelectedScoreType(null);
+                setNumericalScoreCategories((prevScoreCategories) => {
+                    return prevScoreCategories.map((category) => {
+                        return category.scoreType === selectedScoreType ?
+                        {...category,
+                        submitted: true} :
+                        category
+                    })
+                })
                 return;
             }
         }
@@ -76,6 +78,14 @@ export default function ScorecardSection(data: ScorecardSectionData) {
             if (specialScoreCategories[i].scoreType === selectedScoreType) {
                 data.markScore(specialScoreCategories[i].score);
                 setSelectedScoreType(null);
+                setSpecialScoreCategories((prevScoreCategories) => {
+                    return prevScoreCategories.map((category) => {
+                        return category.scoreType === selectedScoreType ?
+                        {...category,
+                        submitted: true} :
+                        category
+                    })
+                })
                 return;
             }
         }
@@ -94,8 +104,9 @@ export default function ScorecardSection(data: ScorecardSectionData) {
                         id={typeLabel}
                         name={`radio-${typeLabel}`}
                         type="checkbox"
-                        checked={scoreCategory.scoreType == selectedScoreType}
+                        checked={scoreCategory.scoreType == selectedScoreType || scoreCategory.submitted}
                         onChange={() => setSelectedScoreType(scoreCategory.scoreType)}
+                        disabled={scoreCategory.submitted || data.isRolling || data.arePointsSubmitted}
                         />
                         <span className="fake-checkbox"></span>
                     </div>
@@ -125,7 +136,7 @@ export default function ScorecardSection(data: ScorecardSectionData) {
             <div className="score-report-section">
                 <div className="scores">
                     <span>Total Score: {data.score}</span>
-                    <span>High Score: ###</span>
+                    <span>High Score: 0</span>
                 </div>
                 <button className="action-button" onClick={onScoreSubmitted} disabled={selectedScoreType === null || data.arePointsSubmitted}>Submit</button>
             </div>

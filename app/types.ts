@@ -19,6 +19,7 @@ export interface DieData {
     isHeld: boolean;
     isRolling: boolean;
     toggleIsHeld: (id: string) => void;
+    disabled: boolean;
 }
 
 export interface ScorecardSectionData {
@@ -26,6 +27,7 @@ export interface ScorecardSectionData {
     score: number;
     markScore: (score: number) => void;
     arePointsSubmitted: boolean;
+    isRolling: boolean;
 }
 
 export enum ScoreType {
@@ -73,7 +75,6 @@ export const getScoreTypeDisplayName = (scoreType: ScoreType) => {
 }
 
 export interface ScoreCategory {
-    marked: boolean;
     score: number;
     scoreType: ScoreType;
     submitted: boolean;

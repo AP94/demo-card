@@ -5,7 +5,7 @@ import { DiceSectionData } from "@/app/types";
 export default function DiceSection(data: DiceSectionData) {
 
     const diceElements = data.dice.map(die => (
-        <Die key={die.id} id={die.id} value={die.value} isHeld={die.isHeld} isRolling={!die.isHeld && data.isRolling} toggleIsHeld={data.toggleIsHeld}></Die>
+        <Die key={die.id} id={die.id} value={die.value} isHeld={die.isHeld} isRolling={!die.isHeld && data.isRolling} toggleIsHeld={data.toggleIsHeld} disabled={data.arePointsSubmitted}></Die>
       ));
 
     return (
@@ -25,7 +25,7 @@ export default function DiceSection(data: DiceSectionData) {
             </div>
             <button className="action-button" onClick={data.rollDice} disabled={data.rollsLeft < 1 && !data.arePointsSubmitted}>Roll</button>
             <div className="roll-tracking">
-            <div className={data.rollsLeft < 3 ? 'roll-box active' : 'roll-box inactive'}></div>
+            <div className={data.rollsLeft < 3 && !data.arePointsSubmitted ? 'roll-box active' : 'roll-box inactive'}></div>
             <div className={data.rollsLeft < 2 ? 'roll-box active' : 'roll-box inactive'}></div>
             <div className={data.rollsLeft < 1 ? 'roll-box active' : 'roll-box inactive'}></div>
             </div>

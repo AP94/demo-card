@@ -52,6 +52,10 @@
                         width: 1.563rem;
                         margin: 0; // Remove the built-in margin so that it will perfectly align with the fake checkbox
             
+                        &:disabled {
+                            cursor: default;
+                        }
+
                         &:checked + .fake-checkbox {
                             &::before {
                                 background-color: #4366B2;
@@ -59,6 +63,12 @@
 
                             &::after {
                                 display: block;
+                            }
+                        }
+
+                        &:disabled + .fake-checkbox {
+                            &::before {
+                                background-color: #CCD4EB;
                             }
                         }
                     }
@@ -69,15 +79,15 @@
                         top: 0;
 
                         &::before {
-                        content: "";
-                        display: block;
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        height: 1.563rem;
-                        width: 1.563rem;
-                        border-radius: 0.063rem;
-                        background-color: #9FA7BE;
+                            content: "";
+                            display: block;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            height: 1.563rem;
+                            width: 1.563rem;
+                            border-radius: 0.063rem;
+                            background-color: #9FA7BE;
                         }
         
                         /* Create the checkmark/indicator (hidden when not checked) */
