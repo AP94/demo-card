@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { RollableDie, ScoreCategory, ScoreType, ScorecardSectionData } from "@/app/types";
 import { nanoid } from "nanoid";
+import { calculateScore } from "@/app/utils/score-calc";
 
 export default function ScorecardSection(data: ScorecardSectionData) {
     const initializeScoreCategory = (scoreType: ScoreType): ScoreCategory => {
@@ -32,38 +33,6 @@ export default function ScorecardSection(data: ScorecardSectionData) {
 
     const [selectedScoreType, setSelectedScoreType] = useState<ScoreType | null>(null);
 
-    const calculateScoreForNumericalCategory = (dice: RollableDie[], diceValue: number) => {
-        let total = 0;
-
-        for (let i = 0; i < dice.length; i++)
-        {
-            if (dice[i].value === diceValue)
-            {
-                total = total + diceValue;
-            }
-        }
-
-        return total;
-    }
-
-    const calculateScoreForSpecialCategory = (dice: RollableDie[], scoreType: ScoreType) => {
-        switch (scoreType) {
-            // case (ScoreType.FullHouse):
-            //     {}
-            // case (ScoreType.FourOfAKind):
-            //     {}
-            // case (ScoreType.LittleStraight):
-            //     {}
-            // case (ScoreType.BigStraight):
-            //     {}
-            // case (ScoreType.Chance):
-            //     {}
-            // case (ScoreType.Yacht):
-            //     {}
-            default:
-                return 0;
-        }
-    }
     
     useEffect(() => {
         // for each section that hasn't been submitted, update the value
@@ -72,7 +41,7 @@ export default function ScorecardSection(data: ScorecardSectionData) {
                 return scoreCategory.submitted ? scoreCategory :
                     {
                         ...scoreCategory,
-                        score: calculateScoreForNumericalCategory(data.dice, scoreCategory.scoreType)
+                        score: calculateScore(data.dice, scoreCategory.scoreType)
                     }
             })
         });
@@ -81,7 +50,7 @@ export default function ScorecardSection(data: ScorecardSectionData) {
                 return scoreCategory.submitted ? scoreCategory :
                     {
                         ...scoreCategory,
-                        score: calculateScoreForSpecialCategory(data.dice, scoreCategory.scoreType)
+                        score: calculateScore(data.dice, scoreCategory.scoreType)
                     }
             })
         });
