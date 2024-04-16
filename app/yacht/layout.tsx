@@ -9,7 +9,7 @@ export default function GamesLayout({
   return (
     <section className="yacht-section">
       <nav>
-        <Link className="back-button" href="/"></Link>
+        <Link className="back-button" href="/" data-message="Back button"></Link>
         <div className="title-container">I Can't Believe It's Not YAHTZEE</div>
       </nav>
 

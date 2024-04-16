@@ -39,6 +39,7 @@ export default function Page() {
     }, rollDuration);
   }
 
+  // todo: change this for initialization
   useEffect(() => {
     rollAllDice();
   }, []);
@@ -60,21 +61,14 @@ export default function Page() {
             value: Math.ceil(Math.random() * 6)
           }
       }));
-  
-      // update rolls left
-      setRollsLeft((prevRollsLeft) => {
-        if (prevRollsLeft > 0)
-        {
-          return prevRollsLeft - 1;
-        }
-        else
-        {
-          return 2;
-        }
-      })
     }
+    
+    // update rolls left
+    setRollsLeft((prevRollsLeft) => {
+      return prevRollsLeft - 1;
+    })
   
-    // after "rollDuration" seconds, finish "rolling"
+    // after $rollDuration seconds, finish "rolling"
     setTimeout(() => {
       setIsRolling(false);
     }, rollDuration);
@@ -82,13 +76,10 @@ export default function Page() {
 
   const markScore = (score: number) =>
   {
-    // doublecheck that a points section box is checked
     setScore(prevScore => prevScore + score);
-    // disable the selected points section box
-    // (maybe) add styling to the submitted points in the scorecard
 
     setPointsSubmitted(true);
-    setRollsLeft(2);
+    setRollsLeft(3);
     setDice(prevDice => prevDice.map(die => {
       return {...die,
           isHeld: false

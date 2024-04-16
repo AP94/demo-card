@@ -103,10 +103,15 @@ export default function ScorecardSection(data: ScorecardSectionData) {
     const getElementFromCategory = (scoreCategory: ScoreCategory) => {
         const typeLabel = scoreCategory.scoreType.toString();
 
+        const generateCheckboxDesciption = () => {
+            let toggleSelectText = scoreCategory.scoreType == selectedScoreType ? "Deselect" : "Select";
+            return `${toggleSelectText} ${getScoreTypeDisplayName(scoreCategory.scoreType)} for ${scoreCategory.score} points`
+        }
+
         return (
             <div key={nanoid()} className="row">
                 <div className="label col">{getScoreTypeDisplayName(scoreCategory.scoreType)}</div>
-                <div className="col">{scoreCategory.score}</div>
+                <div className="score col">{scoreCategory.score}</div>
                 <div className="col">
                     <div className="checkbox-container">
                         <input key={nanoid()}
@@ -116,6 +121,7 @@ export default function ScorecardSection(data: ScorecardSectionData) {
                         checked={scoreCategory.scoreType == selectedScoreType || scoreCategory.submitted}
                         onChange={() => onClicked(scoreCategory.scoreType)}
                         disabled={scoreCategory.submitted || data.isRolling || data.arePointsSubmitted}
+                        data-message={generateCheckboxDesciption()}
                         />
                         <span className="fake-checkbox"></span>
                     </div>
@@ -147,7 +153,7 @@ export default function ScorecardSection(data: ScorecardSectionData) {
                     <span>Total Score: {data.score}</span>
                     <span>High Score: 0</span>
                 </div>
-                <button className="action-button" onClick={onScoreSubmitted} disabled={selectedScoreType === null || data.arePointsSubmitted}>Submit</button>
+                <button className="action-button" onClick={onScoreSubmitted} disabled={selectedScoreType === null || data.arePointsSubmitted} data-message="Submit score for selected category">Submit</button>
             </div>
         </div>
     )

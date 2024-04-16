@@ -54,9 +54,15 @@ export default function Die(data: DieData) {
         </div>
     )
 
+    const generateDescription = () => {
+        const lockedText = data.isHeld ? "locked" : "unlocked";
+        
+        return data.disabled ? "Disabled die" :  `${data.value}-value ${lockedText} die`;
+    }
+
     return (
-        <div className={dieClassName} onClick={handleClick}>
+        <button className={dieClassName} onClick={handleClick} data-message={generateDescription()}>
             {data.isRolling ? rollingElement : dotsElement}
-        </div>
+        </button>
     )
 }

@@ -16,27 +16,33 @@
         align-items: center;
         justify-content: space-around;
         box-sizing: border-box;
-        padding: 1rem;
+        padding: 0 2.5rem;
 
         .left-scorecard, .right-scorecard {
-            border: #332E33 0.188rem;
-            flex: 1;
+            width: 40%;
         }
 
         .row {
             display: flex;
+            align-items: center;
+            margin: 0.313rem 0;
 
             .col {
-                flex: 1;
-
                 &.label {
                     flex: 2;
+                }
+
+                &.score {
+                    display: flex;
+                    justify-content: center;
+                    flex: 1;
                 }
 
                 .checkbox-container {
                     display: block;
                     position: relative;
                     cursor: pointer;
+                    height: 1.563rem;
                     
                     -webkit-user-select: none;
                     -moz-user-select: none;
@@ -71,10 +77,15 @@
                                 background-color: #CCD4EB;
                             }
                         }
+
+                        &:focus + .fake-checkbox::before {
+                            border: 0.125rem solid #332E33;
+                        }
                     }
 
                     .fake-checkbox {
                         position: absolute;
+                        box-sizing: border-box;
                         left: 0;
                         top: 0;
 
@@ -82,6 +93,7 @@
                             content: "";
                             display: block;
                             position: absolute;
+                            box-sizing: border-box;
                             top: 0;
                             left: 0;
                             height: 1.563rem;
