@@ -25,6 +25,7 @@ export interface ScorecardSectionData {
     dice: RollableDie[];
     score: number;
     markScore: (score: number) => void;
+    arePointsSubmitted: boolean;
 }
 
 export enum ScoreType {
@@ -40,6 +41,35 @@ export enum ScoreType {
     BigStraight,
     Chance,
     Yacht
+}
+
+export const getScoreTypeDisplayName = (scoreType: ScoreType) => {
+    switch (scoreType) {
+        case ScoreType.Ones:
+            return "Ones";
+        case ScoreType.Twos:
+            return "Twos";
+        case ScoreType.Threes:
+            return "Threes";
+        case ScoreType.Fours:
+            return "Fours";
+        case ScoreType.Fives:
+            return "Fives";
+        case ScoreType.Sixes:
+            return "Sixes";
+        case ScoreType.FullHouse:
+            return "Full House";
+        case ScoreType.FourOfAKind:
+            return "Four of a Kind";
+        case ScoreType.LittleStraight:
+            return "Little Straight";
+        case ScoreType.BigStraight:
+            return "Big Straight";
+        case ScoreType.Chance:
+            return "Chance";
+        case ScoreType.Yacht:
+            return "Yacht";
+    }
 }
 
 export interface ScoreCategory {

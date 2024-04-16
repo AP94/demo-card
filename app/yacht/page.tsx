@@ -109,7 +109,7 @@ export default function Page() {
       <div className="help-button"></div>
       {/* <div>TODO: initial state - instructions & play button</div> */}
       <DiceSection dice={dice} rollsLeft={rollsLeft} arePointsSubmitted={pointsSubmitted} toggleIsHeld={setHeld} rollDice={rollDice} isRolling={isRolling} />
-      <ScorecardSection dice={dice} score={score} markScore={markScore} />
+      <ScorecardSection dice={dice} score={score} markScore={markScore}  arePointsSubmitted={pointsSubmitted} />
     </div>
   )
 }

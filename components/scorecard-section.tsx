@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { RollableDie, ScoreCategory, ScoreType, ScorecardSectionData } from "@/app/types";
+import { RollableDie, ScoreCategory, ScoreType, ScorecardSectionData, getScoreTypeDisplayName } from "@/app/types";
 import { nanoid } from "nanoid";
 import { calculateScore } from "@/app/utils/score-calc";
 
@@ -81,35 +81,6 @@ export default function ScorecardSection(data: ScorecardSectionData) {
         }
     };
 
-    const getScoreTypeDisplayName = (scoreType: ScoreType) => {
-        switch (scoreType) {
-            case ScoreType.Ones:
-                return "Ones";
-            case ScoreType.Twos:
-                return "Twos";
-            case ScoreType.Threes:
-                return "Threes";
-            case ScoreType.Fours:
-                return "Fours";
-            case ScoreType.Fives:
-                return "Fives";
-            case ScoreType.Sixes:
-                return "Sixes";
-            case ScoreType.FullHouse:
-                return "Full House";
-            case ScoreType.FourOfAKind:
-                return "Four of a Kind";
-            case ScoreType.LittleStraight:
-                return "Little Straight";
-            case ScoreType.BigStraight:
-                return "Big Straight";
-            case ScoreType.Chance:
-                return "Chance";
-            case ScoreType.Yacht:
-                return "Yacht";
-        }
-    }
-
     const getElementFromCategory = (scoreCategory: ScoreCategory) => {
         const typeLabel = scoreCategory.scoreType.toString();
 
@@ -156,7 +127,7 @@ export default function ScorecardSection(data: ScorecardSectionData) {
                     <span>Total Score: {data.score}</span>
                     <span>High Score: ###</span>
                 </div>
-                <button className="action-button" onClick={onScoreSubmitted}>Confirm</button>
+                <button className="action-button" onClick={onScoreSubmitted} disabled={selectedScoreType === null || data.arePointsSubmitted}>Submit</button>
             </div>
         </div>
     )
