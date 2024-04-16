@@ -91,6 +91,15 @@ export default function ScorecardSection(data: ScorecardSectionData) {
         }
     };
 
+    const onClicked = (scoreType: ScoreType) => {
+        setSelectedScoreType((prevScoreType) => {
+            if (prevScoreType === scoreType) {
+                return null;
+            }
+            return scoreType;
+        })
+    }
+
     const getElementFromCategory = (scoreCategory: ScoreCategory) => {
         const typeLabel = scoreCategory.scoreType.toString();
 
@@ -105,7 +114,7 @@ export default function ScorecardSection(data: ScorecardSectionData) {
                         name={`radio-${typeLabel}`}
                         type="checkbox"
                         checked={scoreCategory.scoreType == selectedScoreType || scoreCategory.submitted}
-                        onChange={() => setSelectedScoreType(scoreCategory.scoreType)}
+                        onChange={() => onClicked(scoreCategory.scoreType)}
                         disabled={scoreCategory.submitted || data.isRolling || data.arePointsSubmitted}
                         />
                         <span className="fake-checkbox"></span>
