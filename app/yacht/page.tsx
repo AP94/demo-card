@@ -5,8 +5,10 @@ import { nanoid } from "nanoid";
 import { RollableDie } from "../types";
 import DiceSection from "@/components/dice-section";
 import ScorecardSection from "@/components/scorecard-section";
+import YachtGameInfo from "@/components/yacht-game-info";
 
 export default function Page() {
+  const [showHelp, setShowHelp] = useState(false);
   const [rollsLeft, setRollsLeft] = useState(2);
   const [pointsSubmitted, setPointsSubmitted] = useState(false);
   const [dice, setDice] = useState<RollableDie[]>([]);
@@ -74,6 +76,18 @@ export default function Page() {
     }, rollDuration);
   }
 
+  const setHeld = (id: string) => {
+    setDice(prevDice => prevDice.map(die => {
+        return die.id === id ? 
+            {...die, isHeld: !die.isHeld} :
+            die
+    }))
+  }
+
+  const toggleShowHelp = () => {
+    setShowHelp(prevShowHelp => !prevShowHelp);
+  }
+
   const markScore = (score: number) =>
   {
     setScore(prevScore => prevScore + score);
@@ -87,19 +101,10 @@ export default function Page() {
     }));
   }
 
-  const setHeld = (id: string) => {
-    setDice(prevDice => prevDice.map(die => {
-        return die.id === id ? 
-            {...die, isHeld: !die.isHeld} :
-            die
-    }))
-  }
-
   return (
-    <div className="yacht-page">
-      <div className="help-button"></div>
-      {/* <div>TODO: initial state - instructions & play button</div> */}
-      <DiceSection dice={dice} rollsLeft={rollsLeft} arePointsSubmitted={pointsSubmitted} toggleIsHeld={setHeld} rollDice={rollDice} isRolling={isRolling} />
+    <div className={showHelp ? "yacht-page show-help" : "yacht-page"}>
+      {showHelp && <YachtGameInfo closeInfoBox={toggleShowHelp}></YachtGameInfo>}
+      <DiceSection dice={dice} rollsLeft={rollsLeft} arePointsSubmitted={pointsSubmitted} toggleIsHeld={setHeld} rollDice={rollDice} isRolling={isRolling} toggleShowHelp={toggleShowHelp} />
       <ScorecardSection dice={dice} score={score} markScore={markScore}  arePointsSubmitted={pointsSubmitted} isRolling={isRolling} />
     </div>
   )

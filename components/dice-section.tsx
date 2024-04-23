@@ -14,17 +14,20 @@ export default function DiceSection(data: DiceSectionData) {
 
     return (
         <div className="dice-section">
-            <div className="dice-tray">
-                <div className="dice-row">
-                {diceElements[0]}
-                {diceElements[1]}
-                </div>
-                <div className="dice-row">
-                {diceElements[2]}
-                </div>
-                <div className="dice-row">
-                {diceElements[3]}
-                {diceElements[4]}
+            <div className="dice-tray-section">
+                <button className="help-button" onClick={data.toggleShowHelp}>?</button>
+                <div className="dice-tray">
+                    <div className="dice-row">
+                    {diceElements[0]}
+                    {diceElements[1]}
+                    </div>
+                    <div className="dice-row">
+                    {diceElements[2]}
+                    </div>
+                    <div className="dice-row">
+                    {diceElements[3]}
+                    {diceElements[4]}
+                    </div>
                 </div>
             </div>
             <button className="action-button" onClick={data.rollDice} disabled={data.rollsLeft < 1 && !data.arePointsSubmitted} data-message="Roll dice">Roll</button>

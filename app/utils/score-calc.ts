@@ -61,7 +61,7 @@ const calculateFourOfAKindScore = (dice: RollableDie[]) => {
     for (let key in valueMap) {
         let count = valueMap[key];
         
-        if (count === 4)
+        if (count > 3)
         {
             return 4 * Number(key);
         }
@@ -100,7 +100,7 @@ const calculateBigStraightScore = (dice: RollableDie[]) => {
     return 0;
 }
 
-const calculateChanceScore = (dice: RollableDie[]) => {
+const calculateChoiceScore = (dice: RollableDie[]) => {
     let total = 0;
 
     dice.forEach((die) => total = total + die.value);
@@ -147,9 +147,9 @@ const calculateScore = (dice: RollableDie[], scoreType: ScoreType) => {
                 {
                     return calculateBigStraightScore(dice);
                 }
-            case (ScoreType.Chance):
+            case (ScoreType.Choice):
                 {
-                    return calculateChanceScore(dice);
+                    return calculateChoiceScore(dice);
                 }
             case (ScoreType.Yacht):
                 {

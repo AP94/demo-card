@@ -10,5 +10,22 @@ body {
   background-image: linear-gradient(#6086EF, #18297B);
 }
 
+.action-button {
+  width: 12rem;
+  height: 3rem;
+  border: none;
+  border-radius: 0.188rem;
+  background-color: #4366B2;
+  color: #FFF;
+  font-weight: bold;
+  font-size: 1.5rem;
+  cursor: pointer;
+
+  &:disabled {
+    background-color: #9FA7BE;
+    cursor: default;
+  }
+}
+
 @import "../components/components.less";
 @import "yacht/yacht.less";

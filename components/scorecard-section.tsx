@@ -26,13 +26,12 @@ export default function ScorecardSection(data: ScorecardSectionData) {
         initializeScoreCategory(ScoreType.FourOfAKind),
         initializeScoreCategory(ScoreType.LittleStraight),
         initializeScoreCategory(ScoreType.BigStraight),
-        initializeScoreCategory(ScoreType.Chance),
+        initializeScoreCategory(ScoreType.Choice),
         initializeScoreCategory(ScoreType.Yacht)
     ]);
 
     const [selectedScoreType, setSelectedScoreType] = useState<ScoreType | null>(null);
 
-    
     useEffect(() => {
         if (!data.isRolling) {
             // for each section that hasn't been submitted, update the value

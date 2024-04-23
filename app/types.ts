@@ -11,6 +11,7 @@ export interface DiceSectionData {
     toggleIsHeld: (id: string) => void;
     dice: RollableDie[];
     isRolling: boolean;
+    toggleShowHelp: () => void;
 }
 
 export interface DieData {
@@ -41,7 +42,7 @@ export enum ScoreType {
     FourOfAKind,
     LittleStraight,
     BigStraight,
-    Chance,
+    Choice,
     Yacht
 }
 
@@ -67,8 +68,8 @@ export const getScoreTypeDisplayName = (scoreType: ScoreType) => {
             return "Little Straight";
         case ScoreType.BigStraight:
             return "Big Straight";
-        case ScoreType.Chance:
-            return "Chance";
+        case ScoreType.Choice:
+            return "Choice";
         case ScoreType.Yacht:
             return "Yacht";
     }
