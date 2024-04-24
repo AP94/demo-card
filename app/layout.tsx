@@ -8,7 +8,7 @@ const heebo = Heebo({
 
 export const metadata: Metadata = {
   title: "Hire me!",
-  description: "Test",
+  description: "",
 };
 
 export default function RootLayout({
