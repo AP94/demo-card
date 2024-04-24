@@ -2,13 +2,11 @@
 .yacht-section {
   display: flex;
   box-sizing: border-box;
-  padding: 1.563rem;
   margin: auto;
   width: 70%;
   height: 100%;
   flex-direction: column;
   align-items: center;
-  padding: 0.25rem 0;
 
   nav {
     width: 100%;
@@ -18,10 +16,15 @@
     align-items: center;
     padding: 1.25rem 0;
   
+    // The <Link> element is replaced by an <a> element in the DOM
+    a {
+      margin: auto; // otherwise, 5px are added to the bottom
+    }
+
     .back-button {
       display: inline-block;
       width: 5rem;
-      height: 3.75rem;
+      height: 4rem;
       border: none;
       border-radius: 0.313rem;
       background-color: #FFF;
@@ -29,6 +32,7 @@
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
+      cursor: pointer;
     }
 
     .title-container {
@@ -51,6 +55,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    padding-bottom: 1.25rem;
     flex-grow: 2;
     justify-content: space-between;
     overflow: auto;
@@ -64,7 +69,6 @@
       border-radius: 0.313rem;
       justify-content: space-evenly;
       flex-grow: 1;
-      margin-bottom: 1.25rem;
     }
 
     &.dialog-open {
@@ -74,5 +78,3 @@
     }
   }
 }
-
-@import "info/yacht-info.less";

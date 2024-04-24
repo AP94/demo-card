@@ -6,4 +6,4 @@ This project serves as both an online resume and a demonstration of my knowledge
 
 To view the site, visit [todo].
 
-This public repo is for potential employers to view the quality of my work.
+This public repo is for potential employers to view the quality of my work. Thanks for stopping by!
