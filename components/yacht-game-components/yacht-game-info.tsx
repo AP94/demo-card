@@ -10,6 +10,7 @@ export default function YachtGameInfo(data: {closeInfoBox: () => void;}) {
                 {dice.map(dieValue => {
                     return (
                     <Die id={nanoid()}
+                        key={nanoid()}
                         value={dieValue}
                         disabled={true}
                         isHeld={false}

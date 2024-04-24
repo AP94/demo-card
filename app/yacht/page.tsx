@@ -74,7 +74,6 @@ export default function Page() {
     }, rollDuration);
   }
 
-  // todo: change this for initialization
   useEffect(() => {
     const storedHighScore: number = JSON.parse(localStorage.getItem(highScoreKey) || '0')
     setHighScore(storedHighScore);

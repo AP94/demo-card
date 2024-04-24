@@ -12,7 +12,7 @@ export default function GamesLayout({
         <Link href="/" data-message="Back button">
           <button className="back-button"></button>
         </Link>
-        <div className="title-container">I Can't Believe It's Not YAHTZEE</div>
+        <div className="title-container">I Can&apos;t Believe It&apos;s Not YAHTZEE</div>
       </nav>
 
       {children}
