@@ -112,6 +112,7 @@ export default function Page() {
       initializeScoreCategories();
       setScore(0);
       rollAllDice();
+      setEndState(false);
     }
 
     else if (pointsSubmitted) {
