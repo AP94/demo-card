@@ -11,6 +11,7 @@ export interface DiceSectionData {
     toggleIsHeld: (id: string) => void;
     dice: RollableDie[];
     isRolling: boolean;
+    rollText: string;
     toggleShowHelp: () => void;
 }
 
@@ -25,8 +26,10 @@ export interface DieData {
 
 export interface ScorecardSectionData {
     dice: RollableDie[];
+    scoreCategories: ScoreCategory[];
     score: number;
-    markScore: (score: number) => void;
+    highScore: number;
+    markScore: (score: number, scoreType: ScoreType) => void;
     arePointsSubmitted: boolean;
     isRolling: boolean;
 }

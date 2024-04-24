@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import { DieData } from "@/app/types";
 
 export default function Die(data: DieData) {
