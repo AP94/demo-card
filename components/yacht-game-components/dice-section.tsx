@@ -30,7 +30,7 @@ export default function DiceSection(data: DiceSectionData) {
                     </div>
                 </div>
             </div>
-            <button className="action-button" onClick={data.rollDice} disabled={data.rollsLeft < 1 && !data.arePointsSubmitted} data-message="Roll dice">{data.rollText}</button>
+            <button className="action-button" onClick={data.rollDice} disabled={data.rollsLeft < 1 && !data.arePointsSubmitted && data.isRolling} data-message="Roll dice">{data.rollText}</button>
             <div className="roll-tracking" data-message={generateRollsLeftDescription()}>
             <div className={data.rollsLeft < 3 ? 'roll-box active' : 'roll-box inactive'}></div>
             <div className={data.rollsLeft < 2 ? 'roll-box active' : 'roll-box inactive'}></div>
