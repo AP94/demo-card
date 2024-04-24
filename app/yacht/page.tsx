@@ -104,7 +104,6 @@ export default function Page() {
         localStorage.setItem(highScoreKey, JSON.stringify(score));
       }
       setEndState(true);
-      console.log("set end state");
     }
   }, [scoreCategories])
 
