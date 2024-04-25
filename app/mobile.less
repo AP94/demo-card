@@ -1,60 +1,382 @@
-@media screen and (max-width: 650px) {
+// Width under which the scorecard sections need to be stacked
+@media screen and (max-width: 770px) {
+    .yacht-section {
+        .yacht-page {
+            .scorecard-section {
+                .scorecard {
+                    flex-wrap: wrap;
+                    padding-top: 0.5rem;
+
+                    .left-scorecard, .right-scorecard {
+                        min-width: 14rem;
+                    }
+                }
+            }
+        }
+    }      
+}
+
+// Mobile S
+@media screen and (max-width: 320px) {
     .action-button {
         width: 8rem;
         height: 2.5rem;
         font-size: 1.25rem;
     }
 
-    .title-container {
-        font-size: 1.3rem;
-    }
+    .yacht-section {
+        width: 90%;
 
-    .yacht-page {
-        .yacht-game-intro{
-            padding: 1rem 1.5rem;
+        nav {
+            height: 2rem;
+            padding: 1rem;
 
-            .intro-container {
-                margin-bottom: 1rem;
+            .back-button {
+                height: 2rem;
+                width: 1.5rem;
+            }
+
+            .title-container {
+                height: 2rem;
+                margin-left: 0.75rem;
+                font-size: 0.8rem;
             }
         }
 
-        .dice-section {
-            .dice-tray-section {
-                .help-button {
-                    right: 0.3rem;
+        .yacht-page {
+            .yacht-game-intro {
+                padding: 1rem;
+
+                .intro-container {
+                    margin-bottom: 1rem;
                 }
             }
 
-            .dice-tray {
-                .die {
-                    width: 3.4rem;
-                    height: 3.4rem;
+            .yacht-game-info {
+                .close-button {
+                    top: 0.3rem;
+                    right: 0.3rem;
+                }
 
-                    .dot {
-                        width: 0.5rem;
-                        height: 0.5rem;
+                .example-dice-tray {
+                    .die {
+                        width: 2.5rem;
+                        height: 2.5rem;
+
+                        .dot {
+                            width: 0.375rem;
+                            height: 0.375rem;
+                            border-radius: 1rem;
+                        }
                     }
                 }
             }
 
-            .roll-tracking {
-                width: 8.5rem;
-        
-                .roll-box {
-                    width: 1.7rem;
-                    height: 1.7rem;
+            .dice-section {
+                .dice-tray-section {
+                    .help-button {
+                        right: 0.3rem;
+                    }
+                }
+
+                .dice-tray {
+                    .die {
+                        width: 3rem;
+                        height: 3rem;
+                        padding: 0.5rem;
+
+                        .dot {
+                            width: 0.5rem;
+                            height: 0.5rem;
+                        }
+                    }
+                }
+
+                .roll-tracking {
+                    width: 8.5rem;
+            
+                    .roll-box {
+                        width: 1.7rem;
+                        height: 1.7rem;
+                    }
+                }
+            }
+
+            .scorecard-section {
+                font-size: 1.1rem;
+                
+                .score-report-section {
+                    margin-top: 0.3rem;
+
+                    .scores {
+                        margin-left: 0.3rem;
+                    }
                 }
             }
         }
+    }
+}
 
-        .scorecard-section {
-            .scorecard {
-                flex-wrap: wrap;
-                padding-top: 0.5rem;
+// Mobile M
+@media screen and (min-width: 321px) and (max-width: 375px) {
+    .action-button {
+        width: 9rem;
+        height: 2.5rem;
+        font-size: 1.25rem;
+    }
 
-                .left-scorecard, .right-scorecard {
-                    min-width: 14rem;
+    .yacht-section {
+        width: 85%;
+
+        nav {
+            height: 2.5rem;
+            padding: 1rem;
+
+            .back-button {
+                height: 2.5rem;
+                width: 3rem;
+            }
+
+            .title-container {
+                height: 2.5rem;
+                margin-left: 0.75rem;
+                font-size: 1rem;
+            }
+        }
+
+        .yacht-page {
+            .yacht-game-intro {
+                padding: 1rem;
+
+                .intro-container {
+                    margin-bottom: 1rem;
                 }
+            }
+
+            .yacht-game-info {
+                .close-button {
+                    top: 0.5rem;
+                    right: 0.5rem;
+                }
+
+                .example-dice-tray {
+                    .die {
+                        width: 2.75rem;
+                        height: 2.75rem;
+
+                        .dot {
+                            width: 0.375rem;
+                            height: 0.375rem;
+                            border-radius: 1rem;
+                        }
+                    }
+                }
+            }
+
+            .dice-section {
+                .dice-tray-section {
+                    .help-button {
+                        right: 0.3rem;
+                    }
+                }
+
+                .dice-tray {
+                    .die {
+                        width: 3rem;
+                        height: 3rem;
+                        padding: 0.5rem;
+
+                        .dot {
+                            width: 0.5rem;
+                            height: 0.5rem;
+                        }
+                    }
+                }
+
+                .roll-tracking {
+                    width: 8.5rem;
+            
+                    .roll-box {
+                        width: 1.7rem;
+                        height: 1.7rem;
+                    }
+                }
+            }
+
+            .scorecard-section {
+                font-size: 1.1rem;
+                
+                .score-report-section {
+                    margin-top: 0.3rem;
+
+                    .scores {
+                        margin-left: 0.3rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Mobile L
+@media screen and (min-width: 376px) and (max-width: 425px) {
+    .action-button {
+        width: 10rem;
+        height: 2.75rem;
+    }
+
+    .yacht-section {
+        width: 80%;
+
+        nav {
+            height: 2.5rem;
+            padding: 1rem;
+
+            .back-button {
+                height: 2.5rem;
+                width: 3rem;
+            }
+
+            .title-container {
+                height: 2.5rem;
+                margin-left: 0.75rem;
+                font-size: 1.2rem;
+            }
+        }
+
+        .yacht-page {
+            .yacht-game-intro {
+                padding: 1rem;
+
+                .intro-container {
+                    margin-bottom: 1rem;
+                }
+            }
+
+            .yacht-game-info {
+                .close-button {
+                    top: 0.5rem;
+                    right: 0.5rem;
+                }
+
+                .example-dice-tray {
+                    .die {
+                        width: 2.75rem;
+                        height: 2.75rem;
+
+                        .dot {
+                            width: 0.375rem;
+                            height: 0.375rem;
+                            border-radius: 1rem;
+                        }
+                    }
+                }
+            }
+
+            .dice-section {
+                .dice-tray-section {
+                    .help-button {
+                        right: 0.3rem;
+                    }
+                }
+
+                .dice-tray {
+                    .die {
+                        width: 3rem;
+                        height: 3rem;
+                        padding: 0.5rem;
+
+                        .dot {
+                            width: 0.5rem;
+                            height: 0.5rem;
+                        }
+                    }
+                }
+
+                .roll-tracking {
+                    width: 8.5rem;
+            
+                    .roll-box {
+                        width: 1.7rem;
+                        height: 1.7rem;
+                    }
+                }
+            }
+
+            .scorecard-section {
+                font-size: 1.1rem;
+                
+                .score-report-section {
+                    margin-top: 0.3rem;
+
+                    .scores {
+                        margin-left: 0.3rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Laptop
+@media screen and (min-width: 769px) {
+    .action-button {
+        font-size: 1.75rem;
+    }
+
+    .yacht-section {
+        font-size: 1.5rem;
+
+        p, li, span {
+            font-size: 1.5rem;
+        }
+
+        nav {
+            .back-button {
+                width: 6rem;
+            }
+
+            .title-container {
+                font-size: 2rem;
+            }
+        }
+
+        .yacht-game-info {
+            .close-button {
+                width: 2rem;
+                height: 2rem;
+                font-size: 1.5rem;
+                line-height: 2rem;
+            }
+        }
+
+        .yacht-page {
+            .dice-section {
+                .dice-tray-section {
+                    .help-button {
+                        width: 2rem;
+                        height: 2rem;
+                        border-radius: 2rem;
+                        font-size: 1.5rem;
+                        line-height: 2rem;
+                    }
+                }
+
+                .dice-tray {
+                    .die {
+                        width: 5rem;
+                        height: 5rem;
+
+                        .dot {
+                            width: 0.75rem;
+                            height: 0.75rem;
+                        }
+                    }
+                }
+            }
+
+            .scorecard-section {
+                font-size: 1.5rem;
             }
         }
     }
