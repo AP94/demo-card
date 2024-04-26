@@ -12,6 +12,7 @@ import YachtGameIntroduction from "@/components/yacht-game-components/yacht-game
 export default function Page() {
   const [initialState, setInitialState] = useState(true);
   const [showHelp, setShowHelp] = useState(false);
+  const [showInfo, setShowInfo] = useState(false);
   const [rollsLeft, setRollsLeft] = useState(2);
   const [pointsSubmitted, setPointsSubmitted] = useState(false);
   const [dice, setDice] = useState<RollableDie[]>([]);
@@ -156,6 +157,10 @@ export default function Page() {
     setInitialState(false);
   }
 
+  const toggleShowInfo = () => {
+    setShowInfo(prevShowInfo => !prevShowInfo);
+  }
+
   const toggleShowHelp = () => {
     setShowHelp(prevShowHelp => !prevShowHelp);
   }
@@ -183,8 +188,8 @@ export default function Page() {
   }
 
   return (
-    <div className={showHelp || initialState ? "yacht-page dialog-open" : "yacht-page"}>
-      {initialState && <YachtGameIntroduction onStartButtonClick={onStartGame} />}
+    <div className={showInfo || showHelp || initialState ? "yacht-page dialog-open" : "yacht-page"}>
+      {(initialState || showInfo) && <YachtGameIntroduction isInitialState={initialState} onStartButtonClick={onStartGame} closeInfoBox={toggleShowInfo} />}
       {showHelp && <YachtGameInfo closeInfoBox={toggleShowHelp} />}
       <DiceSection dice={dice}
         rollsLeft={rollsLeft}
@@ -193,6 +198,7 @@ export default function Page() {
         rollDice={rollDice}
         isRolling={isRolling}
         rollText={endState ? "Play again" : "Roll"}
+        toggleShowInfo={toggleShowInfo}
         toggleShowHelp={toggleShowHelp} />
       <ScorecardSection scoreCategories={scoreCategories}
         dice={dice}

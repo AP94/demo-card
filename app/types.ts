@@ -12,6 +12,7 @@ export interface DiceSectionData {
     dice: RollableDie[];
     isRolling: boolean;
     rollText: string;
+    toggleShowInfo: () => void;
     toggleShowHelp: () => void;
 }
 
@@ -82,4 +83,10 @@ export interface ScoreCategory {
     score: number;
     scoreType: ScoreType;
     submitted: boolean;
+}
+
+export interface IntroDialogData {
+    isInitialState: boolean;
+    onStartButtonClick: () => void;
+    closeInfoBox: () => void;
 }

@@ -24,7 +24,7 @@ export default function YachtGameInfo(data: {closeInfoBox: () => void;}) {
 
     return (
         <div className="yacht-game-info">
-            <button className="close-button" onClick={data.closeInfoBox} data-message="Close game info dialog">X</button>
+            <button className="close-button" onClick={data.closeInfoBox} data-message="Close score guide dialog">X</button>
             <div className="game-info-container">
                 <h2>Score Guide</h2>
                 <h3>Ones, Twoes, Threes, Fours, Fives, and Sixes</h3>

@@ -15,6 +15,7 @@ export default function DiceSection(data: DiceSectionData) {
     return (
         <div className="dice-section">
             <div className="dice-tray-section">
+                <button className="info-button" onClick={data.toggleShowInfo}>i</button>
                 <button className="help-button" onClick={data.toggleShowHelp}>?</button>
                 <div className="dice-tray">
                     <div className="dice-row">
