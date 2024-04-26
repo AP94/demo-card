@@ -9,7 +9,7 @@ export default function YachtGameIntroduction(data: {onStartButtonClick: () => v
                 <p>The rules are simple:</p>
                     <li>You have five dice that you can roll up to three times each round by clicking the Roll button</li>
                     <li>Click on a die to &quot;lock&quot; it, preventing it from being rolled with the other dice. Click it again to &quot;unlock&quot; it.</li>
-                    <li>By the end of each round, you must choose a category to mark your score. Each category can only be used once.</li>
+                    <li>By the end of each round, you must choose a category to mark your score. Check the box next to the category and click "Submit" to do so. Each category can only be used once.</li>
                     <li>The game ends when all score categories have been marked. Try to get the highest score possible!</li>
                 <span>For more details on how each scoring section works, click the <div className="help-button">?</div> icon on the game screen.</span>
             </div>
