@@ -4,6 +4,6 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 This project serves as both an online resume and a demonstration of my knowledge of Typescript and ReactJS.
 
-To view the site, visit [todo].
+To view the site, visit https://ap94.github.io/demo-card/.
 
 This public repo is for potential employers to view the quality of my work. Thanks for stopping by!
