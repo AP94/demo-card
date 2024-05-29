@@ -9,7 +9,7 @@ import YachtGameInfo from "@/components/yacht-game-components/yacht-game-info";
 import { calculateScore } from "../utils/score-calc";
 import YachtGameIntroduction from "@/components/yacht-game-components/yacht-game-introduction";
 
-export default function Page() {
+export default function YachtPage() {
   const [initialState, setInitialState] = useState(true);
   const [showHelp, setShowHelp] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
