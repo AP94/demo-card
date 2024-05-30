@@ -15,11 +15,11 @@ export default function ResumePage() {
                             <div className="underline" />
                         </div>
                         <ul>
-                            <li>Greater Los Angeles Area, CA</li>
-                            <li>anna.c.pinson@gmail.com</li>
-                            <li>(760) 613-1784</li>
-                            <li>linkedin.com/in/anna-pinson</li>
-                            <li>github.com/AP94</li>
+                            <li><div className="location icon" />Greater Los Angeles Area, CA</li>
+                            <li><div className="email icon" />anna.c.pinson@gmail.com</li>
+                            <li><div className="phone icon" />(760) 613-1784</li>
+                            <li><div className="linkedin icon" />linkedin.com/in/anna-pinson</li>
+                            <li><div className="github icon" />github.com/AP94</li>
                         </ul>
                     </div>
                     <div className="skills section">
@@ -54,12 +54,19 @@ export default function ResumePage() {
                 </div>
             </div>
             <div className="right-column">
-                <div className="top-section"></div>
+                <div className="top-section">
+                    <span className="work-title">Software Engineer</span>
+                </div>
                 <div className="work-section">
+                    <div className="section">
+                        <div className="section-label">
+                            <span>Work Experience</span>
+                            <div className="underline" />
+                        </div>
+                    </div>
                     <div className="work-title-section">
-                        <span className="work-title">Software Engineer</span>
-                        <span className="business-title">Laserfiche</span>
-                        <span className="employment-dates">April 2017 - January 2024</span>
+                        <span className="business-title"><b>Laserfiche</b></span>
+                        <span className="employment-dates"><i>April 2017 - January 2024</i></span>
                     </div>
                     <ul>
                         <li>Developed front-end cloud-based application in AngularJS as part of Laserfiche's suite of products</li>
