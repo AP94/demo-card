@@ -117,6 +117,18 @@
                 .contact {
                     align-self: baseline;
                 }
+
+                .skills {
+                    .skill-section-label {
+                        align-self: flex-start;
+                    }
+                    ul {
+                        list-style-type: none;
+                        align-self: flex-start;
+                        margin-left: 25px;
+                        padding: 0;
+                    }
+                }
             }
 
             ul {
@@ -130,7 +142,7 @@
             flex-grow: 2;
 
             .top-section {
-                .work-title {
+                .role {
                     font-size: 1.8rem;
                     margin: auto;
                 }
@@ -138,15 +150,19 @@
 
             .work-section {
                 height: 94%;
-                padding-top: 0.5rem;
+                padding-top: 0.25rem;
 
                 .work-title-section {
                     display: flex;
                     flex-direction: column;
-                    padding-left: 1.25rem;
+                    padding-left: 0.75rem;
 
                     .business-title {
                         font-size: 20px;
+                    }
+
+                    .job-title {
+                        font-size: 16px;
                     }
 
                     .employment-dates {
@@ -158,6 +174,7 @@
                 ul {
                     margin: 0;
                     font-size: 15px;
+                    padding-left: 32px;
                 }
             }
         }

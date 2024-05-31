@@ -27,18 +27,27 @@ export default function ResumePage() {
                             <span>Skills</span>
                             <div className="underline" />
                         </div>
+                        <span className="skill-section-label"><i>Proficient in:</i></span>
                         <ul>
-                            <li>Typescript/Javascript</li>
+                            <li>Typescript</li>
+                            <li>Javascript</li>
                             <li>HTML</li>
-                            <li>CSS/LESS</li>
-                            <li>ReactJS</li>
+                            <li>CSS</li>
+                            <li>LESS</li>
                             <li>AngularJS</li>
-                            <li>C#</li>
+                            <li>ReactJS</li>
                             <li>YAML</li>
-                            <li>Gulp</li>
                             <li>Cypress</li>
                             <li>GIT</li>
                             <li>Azure DevOps</li>
+                        </ul>
+                        <span className="skill-section-label"><i>Working knowledge of:</i></span>
+                        <ul>
+                            <li>C#</li>
+                            <li>Gulp</li>
+                            <li>.Net</li>
+                            <li>C++</li>
+                            <li>AWS</li>
                             <li>PowerBI</li>
                         </ul>
                     </div>
@@ -55,7 +64,7 @@ export default function ResumePage() {
             </div>
             <div className="right-column">
                 <div className="top-section">
-                    <span className="work-title">Software Engineer</span>
+                    <span className="role">Software Developer</span>
                 </div>
                 <div className="work-section">
                     <div className="section">
@@ -66,13 +75,14 @@ export default function ResumePage() {
                     </div>
                     <div className="work-title-section">
                         <span className="business-title"><b>Laserfiche</b></span>
+                        <span className="job-title">Software Engineer</span>
                         <span className="employment-dates"><i>April 2017 - January 2024</i></span>
                     </div>
                     <ul>
                         <li>Developed front-end cloud-based application in AngularJS as part of Laserfiche's suite of products</li>
                         <li>Worked with four other developers to create a Cypress test suite for the front-end of our application, which was then integrated into the build-test-deploy pipeline to serve as deployment gateways</li>
                         <li>Migrated build and deploy pipelines from classic Azure DevOps to YAML pipelines, removing a pre-existing dependency on another team's release pipeline to deploy to AWS</li>
-                        <li>Completed the backend for a web-based scanning application, then assisted in designing and implementing the frontend, incorporating customer feedback on potential designs into the final product</li>
+                        <li>Completed the backend for a web-based scanning application in C++, then assisted in designing and implementing the frontend in AngularJS, incorporating customer feedback on potential designs into the final product</li>
                         <li>Assisted in localization efforts by removing any hard-coded strings and by refactoring all front-end error reporting to ensure that the only user-facing errors shown were actionable and properly translated</li>
                         <li>Added metrics to measure front-end load times and loading errors for our main application, developed and monitored a dashboard to analyze the data using PowerBI, identified and then remedied a loading issue, which lowered the average load time by 5 seconds</li>
                         <li>Reviewed around 50 lines of code per month, the majority of which were in Typescript, AngularJS, HTML, and LESS, with occasional C#</li>
