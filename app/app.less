@@ -37,21 +37,39 @@ body {
   }
 }
 
-.main-page {
-  display: flex;
-  box-sizing: border-box;
-  padding: 1.563rem;
-  margin: auto;
-  width: 80%;
-  height: 80%;
-  border-radius: 0.313rem;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #FFF;
+// Source: https://www.w3schools.com/css/css_tooltip.asp
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  border-bottom: 1px dotted black;
+
+  .tooltip-text {
+    visibility: hidden;
+    width: 100%;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -50%;
+    background-color: #394158;
+    color: #CCD4EB;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+   
+    position: absolute;
+    z-index: 1;
+  }
+  
+  &:hover {
+    .tooltip-text {
+      visibility: visible;
+    }
+  }
 }
 
 @import "../components/components.less";
+@import "main-page.less";
 @import "yacht/yacht.less";
 @import "resume/resume.less";
 @import "mobile.less";
