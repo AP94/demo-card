@@ -79,9 +79,9 @@ export default function ResumePage() {
                         <span className="employment-dates"><i>April 2017 - January 2024</i></span>
                     </div>
                     <ul>
-                        <li>Developed front-end cloud-based application in AngularJS as part of Laserfiche's suite of products</li>
+                        <li>Developed front-end cloud-based application in AngularJS as part of Laserfiche&quot;s suite of products</li>
                         <li>Worked with four other developers to create a Cypress test suite for the front-end of our application, which was then integrated into the build-test-deploy pipeline to serve as deployment gateways</li>
-                        <li>Migrated build and deploy pipelines from classic Azure DevOps to YAML pipelines, removing a pre-existing dependency on another team's release pipeline to deploy to AWS</li>
+                        <li>Migrated build and deploy pipelines from classic Azure DevOps to YAML pipelines, removing a pre-existing dependency on another team&quot;s release pipeline to deploy to AWS</li>
                         <li>Completed the backend for a web-based scanning application in C++, then assisted in designing and implementing the frontend in AngularJS, incorporating customer feedback on potential designs into the final product</li>
                         <li>Assisted in localization efforts by removing any hard-coded strings and by refactoring all front-end error reporting to ensure that the only user-facing errors shown were actionable and properly translated</li>
                         <li>Added metrics to measure front-end load times and loading errors for our main application, developed and monitored a dashboard to analyze the data using PowerBI, identified and then remedied a loading issue, which lowered the average load time by 5 seconds</li>
