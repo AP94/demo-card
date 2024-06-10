@@ -80,6 +80,13 @@ export default function ScorecardSection(data: ScorecardSectionData) {
         return getElementFromCategory(scoreCategory);
     });
 
+    const openHighScoreResetPrompt = () =>
+    {
+        if (confirm("Are you sure you want to reset your high score?")) {
+            data.resetHighScore();
+          }
+    }
+
     return (
         <div className="scorecard-section">
             <div className="scorecard">
@@ -93,7 +100,7 @@ export default function ScorecardSection(data: ScorecardSectionData) {
             <div className="score-report-section">
                 <div className="scores">
                     <span>Score: {data.score}</span>
-                    <span>High Score: {data.highScore}</span>
+                    <span className="clickable" onClick={() => openHighScoreResetPrompt()} title="click to reset">High Score: {data.highScore}</span>
                 </div>
                 <button className="action-button" onClick={onScoreSubmitted} disabled={selectedScoreType === null || data.arePointsSubmitted} data-message="Submit score for selected category">Submit</button>
             </div>

@@ -187,6 +187,11 @@ export default function YachtPage() {
     });
   }
 
+  const resetHighScore = () => {
+    setHighScore(0);
+    localStorage.setItem(highScoreKey, JSON.stringify(0));
+  }
+
   return (
     <div className={showInfo || showHelp || initialState ? "yacht-page dialog-open" : "yacht-page"}>
       {(initialState || showInfo) && <YachtGameIntroduction isInitialState={initialState} onStartButtonClick={onStartGame} closeInfoBox={toggleShowInfo} />}
@@ -205,6 +210,7 @@ export default function YachtPage() {
         score={score}
         highScore={highScore}
         markScore={markScore}
+        resetHighScore={resetHighScore}
         arePointsSubmitted={pointsSubmitted}
         isRolling={isRolling} />
     </div>

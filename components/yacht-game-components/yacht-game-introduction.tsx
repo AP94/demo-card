@@ -14,6 +14,7 @@ export default function YachtGameIntroduction(data: IntroDialogData) {
                     <li>Click on a die to &quot;lock&quot; it, preventing it from being rolled with the other dice. Click it again to &quot;unlock&quot; it.</li>
                     <li>By the end of each round, you must choose a category to mark your score. Check the box next to the category and click `&quot;Submit`&quot; to do so. Each category can only be used once.</li>
                     <li>The game ends when all score categories have been marked. Try to get the highest score possible!</li>
+                    <li>To reset your high score, click the High Score text at the bottom of the page.</li>
                 <span>For more details on how each scoring section works, click the <div className="help-button">?</div> icon on the game screen.</span>
                 <span>To view this dialog again, click the <div className="info-button">i</div> icon on the game screen.</span>
             </div>

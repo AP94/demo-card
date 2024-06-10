@@ -32,6 +32,7 @@ export interface ScorecardSectionData {
     highScore: number;
     markScore: (score: number, scoreType: ScoreType) => void;
     arePointsSubmitted: boolean;
+    resetHighScore: () => void;
     isRolling: boolean;
 }
 
