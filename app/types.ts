@@ -91,3 +91,10 @@ export interface IntroDialogData {
     onStartButtonClick: () => void;
     closeInfoBox: () => void;
 }
+
+export interface StackedDivData {
+    content: string;
+    topColor: string;
+    middleColor: string;
+    bottomColor: string;
+}

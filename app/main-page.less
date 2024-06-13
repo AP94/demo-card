@@ -1,17 +1,67 @@
 
 .main-page {
     display: flex;
-    justify-content: space-evenly;
-    box-sizing: border-box;
-    padding: 1.563rem;
-    margin: auto;
-    width: 80%;
-    height: 80%;
-    border-radius: 0.313rem;
     flex-direction: column;
     align-items: center;
-    background-color: #FFF;
-    font-size: 1.25rem;
+    justify-content: space-evenly;
+    margin: auto;
+    width: 90%;
+    height: 90%;
+
+    p {
+        margin: 0;
+    }
+
+    span {
+        margin: 10px 0;
+    }
+
+    .smaller {
+        font-size: 1.5rem;
+    }
+
+    .bigger {
+        font-size: 2.5rem;
+    }
+
+    .bold {
+        font-weight: bold;
+    }
+    
+    .top-section, .bottom-section {
+        background-color: #FFF;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 1.563rem;
+        border-radius: 0.313rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .top-section {
+        font-size: 2.25rem;
+
+        .stacked-div {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+    }
+
+    .middle-section {
+        flex-grow: 2;
+        padding: 10px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .bottom-section {
+        font-size: 2rem;
+    }
 
     .hello-world {
         display: flex;
