@@ -1,6 +1,7 @@
 import StackedDiv from "@/components/common/stacked-div";
 import { bitter } from "./fonts";
 import Link from "next/link";
+import { nanoid } from "nanoid";
 
 export default function Home() {
   const sellingPoints = [
@@ -17,6 +18,7 @@ export default function Home() {
   const sellingPointElements = sellingPoints.map((point) => {
     return (
       <StackedDiv
+        key={nanoid()}
         content={point}
         topColor="#FFFFFF"
         middleColor="#E6EAF5"
