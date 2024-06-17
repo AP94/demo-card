@@ -43,7 +43,7 @@ export default function Home() {
       </div>
       <div className="bottom-section">
         <p>Then check out my <Link href="/resume">resume</Link>!</p>
-        <p>If you&apos;d like to review my work, you can see the codebase for this site <a href="https://github.com/AP94/demo-card">here</a>.</p>
+        <p className="smaller">If you&apos;d like to review my work, you can see the codebase for this site <a href="https://github.com/AP94/demo-card">here</a>.</p>
         <p className="smaller">And while you&apos;re here, <Link href="/yacht">why not play a game?</Link></p>
       </div>
     </div>
