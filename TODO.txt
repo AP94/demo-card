@@ -1,0 +1,9 @@
+# TODO
+- Add auto-escaping characters to the build process
+- Add automated tests & add that to the pipeline
+
+# BUGS/FEATURES
+- Can't select dice category with enter key
+- Selecting dice category with space removes focus
+
+- Next game: solitaire?
