@@ -35,16 +35,16 @@ export default function Home() {
           topColor="#99BBFF"
           middleColor="#6086EF"
           bottomColor="#18297B" />
-        <span className="bigger bold">Yeah, you!</span>
+        <span className="bigger semibold">Yeah, you!</span>
         <span>Do you need a frontend dev who:</span>
       </div>
       <div className="middle-section">
         {sellingPointElements}
       </div>
       <div className="bottom-section">
-        <p>Then check out my <Link href="/resume">resume</Link>!</p>
-        <p className="smaller">If you&apos;d like to review my work, you can see the codebase for this site <a href="https://github.com/AP94/demo-card">here</a>.</p>
-        <p className="smaller">And while you&apos;re here, <Link href="/yacht">why not play a game?</Link></p>
+        <p className="bigger">Then check out my <Link href="/resume">resume</Link>!</p>
+        <p>If you&apos;d like to review my work, you can see the codebase for this site <a href="https://github.com/AP94/demo-card">here</a>.</p>
+        <p>And while you&apos;re here, <Link href="/yacht">why not play a game?</Link></p>
       </div>
     </div>
   );
