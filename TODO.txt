@@ -1,6 +1,4 @@
 # TODO
-- Add mobile styling to main page and resume
-- Add auto-escaping characters to the build process
 - Add automated tests & add that to the pipeline
 
 # BUGS/FEATURES

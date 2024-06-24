@@ -1,18 +1,18 @@
 import StackedDiv from "@/components/common/stacked-div";
 import { bitter } from "./fonts";
-import Link from "next/link";
 import { nanoid } from "nanoid";
+import Link from "next/link";
+import { strings as s, reactLinkString as r, externalLinkString as l } from "./strings";
 
 export default function Home() {
   const sellingPoints = [
-    `Has over 6 1/2 years' experience in software development,
-    most of which was spent working with component-based architecture?`,
-    "Is a good communicator and can explain technical concepts to other devs, PMs, and customers?",
-    "Created build-test-deployment pipelines? For a frontend application, even?",
-    "Knows how to thrive in an agile environment?",
-    "Work well solo, in pairs, or in a mob?",
-    "Loves writing documentation?",
-    "Can learn anything?"
+    s['main.point1'],
+    s['main.point2'],
+    s['main.point3'],
+    s['main.point4'],
+    s['main.point5'],
+    s['main.point6'],
+    s['main.point7'],
   ];
 
   const sellingPointElements = sellingPoints.map((point) => {
@@ -31,20 +31,20 @@ export default function Home() {
     <div className="main-page">
       <div className={`top-section ${bitter.className}`}>
         <StackedDiv
-          content="Hey, you!"
+          content={s['main.header']}
           topColor="#99BBFF"
           middleColor="#6086EF"
           bottomColor="#18297B" />
-        <span className="bigger semibold">Yeah, you!</span>
-        <span>Do you need a frontend dev who:</span>
+        <span className="bigger semibold">{s['main.subheader']}</span>
+        <span>{s['main.doYouNeed']}</span>
       </div>
       <div className="middle-section">
         {sellingPointElements}
       </div>
       <div className="bottom-section">
-        <p className="bigger">Then check out my <Link href="/resume">resume</Link>!</p>
-        <p>If you&apos;d like to review my work, you can see the codebase for this site <a href="https://github.com/AP94/demo-card">here</a>.</p>
-        <p>And while you&apos;re here, <Link href="/yacht">why not play a game?</Link></p>
+        <p className="bigger">{r('main.resumeLink', '/resume')}</p>
+        <p>{l('main.githubLink', 'https://github.com/AP94/demo-card')}</p>
+        <p>{r('main.yachtLink', '/yacht')}</p>
       </div>
     </div>
   );

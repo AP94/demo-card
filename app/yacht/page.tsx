@@ -8,6 +8,7 @@ import ScorecardSection from "@/components/yacht-game-components/scorecard-secti
 import YachtGameInfo from "@/components/yacht-game-components/yacht-game-info";
 import { calculateScore } from "../utils/score-calc";
 import YachtGameIntroduction from "@/components/yacht-game-components/yacht-game-introduction";
+import { strings as s } from "../strings";
 
 export default function YachtPage() {
   const [initialState, setInitialState] = useState(true);
@@ -202,7 +203,7 @@ export default function YachtPage() {
         toggleIsHeld={setHeld}
         rollDice={rollDice}
         isRolling={isRolling}
-        rollText={endState ? "Play again" : "Roll"}
+        rollText={endState ? s['yacht.playAgain'] : s['yacht.roll']}
         toggleShowInfo={toggleShowInfo}
         toggleShowHelp={toggleShowHelp} />
       <ScorecardSection scoreCategories={scoreCategories}

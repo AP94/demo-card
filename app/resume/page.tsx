@@ -1,4 +1,4 @@
-
+import { strings as s } from "../strings";
 
 export default function ResumePage() {
   return (
@@ -27,7 +27,7 @@ export default function ResumePage() {
                             <span>Skills</span>
                             <div className="underline" />
                         </div>
-                        <span className="skill-section-label"><i>Proficient in:</i></span>
+                        <span className="skill-section-label"><i>{s['resume.skillSection.headerOne']}</i></span>
                         <ul>
                             <li>Typescript</li>
                             <li>Javascript</li>
@@ -41,10 +41,11 @@ export default function ResumePage() {
                             <li>GIT</li>
                             <li>Azure DevOps</li>
                         </ul>
-                        <span className="skill-section-label"><i>Working knowledge of:</i></span>
+                        <span className="skill-section-label"><i>{s['resume.skillSection.headerTwo']}</i></span>
                         <ul>
                             <li>C#</li>
                             <li>Gulp</li>
+                            <li>SQL</li>
                             <li>.Net</li>
                             <li>C++</li>
                             <li>AWS</li>
@@ -53,7 +54,7 @@ export default function ResumePage() {
                     </div>
                     <div className="education section">
                         <div className="section-label">
-                            <span>Education</span>
+                            <span>{s['resume.education.header']}</span>
                             <div className="underline" />
                         </div>
                         <span><b>Harvey Mudd College</b></span>
@@ -64,31 +65,31 @@ export default function ResumePage() {
             </div>
             <div className="right-column">
                 <div className="top-section">
-                    <span className="role">Software Developer</span>
+                    <span className="role">{s['resume.role']}</span>
                 </div>
                 <div className="work-section">
                     <div className="section">
                         <div className="section-label">
-                            <span>Work Experience</span>
+                            <span>{s['resume.experience.header']}</span>
                             <div className="underline" />
                         </div>
                     </div>
                     <div className="work-title-section">
                         <span className="business-title"><b>Laserfiche</b></span>
-                        <span className="job-title">Software Engineer</span>
+                        <span className="job-title">{s['resume.job.title']}</span>
                         <span className="employment-dates"><i>April 2017 - January 2024</i></span>
                     </div>
                     <ul>
-                        <li>Developed front-end cloud-based application in AngularJS as part of Laserfiche&apos;s suite of products</li>
-                        <li>Worked with four other developers to create a Cypress test suite for the front-end of our application, which was then integrated into the build-test-deploy pipeline to serve as deployment gateways</li>
-                        <li>Migrated build and deploy pipelines from classic Azure DevOps to YAML pipelines, removing a pre-existing dependency on another team&apos;s release pipeline to deploy to AWS</li>
-                        <li>Completed the backend for a web-based scanning application in C++, then assisted in designing and implementing the frontend in AngularJS, incorporating customer feedback on potential designs into the final product</li>
-                        <li>Assisted in localization efforts by removing any hard-coded strings and by refactoring all front-end error reporting to ensure that the only user-facing errors shown were actionable and properly translated</li>
-                        <li>Added metrics to measure front-end load times and loading errors for our main application, developed and monitored a dashboard to analyze the data using PowerBI, identified and then remedied a loading issue, which lowered the average load time by 5 seconds</li>
-                        <li>Reviewed around 50 lines of code per month, the majority of which were in Typescript, AngularJS, HTML, and LESS, with occasional C#</li>
-                        <li>Accumulated over five years of experience fixing and triaging bugs</li>
-                        <li>Facilitated daily check-ins and backlog refinement meetings, breaking down and sorting planned work into features, backlog items, and tasks, such that they can be communicated to our scrum master and project manager as well as the developers on our team, on a semi-regular basis</li>
-                        <li>Assisted customers in learning how to use our software and answered questions, both in workshops and one-on-one, at our annual conference</li>
+                        <li>{s['resume.job.task1']}</li>
+                        <li>{s['resume.job.task2']}</li>
+                        <li>{s['resume.job.task3']}</li>
+                        <li>{s['resume.job.task4']}</li>
+                        <li>{s['resume.job.task5']}</li>
+                        <li>{s['resume.job.task6']}</li>
+                        <li>{s['resume.job.task7']}</li>
+                        <li>{s['resume.job.task8']}</li>
+                        <li>{s['resume.job.task9']}</li>
+                        <li>{s['resume.job.task10']}</li>
                     </ul>
                 </div>
             </div>

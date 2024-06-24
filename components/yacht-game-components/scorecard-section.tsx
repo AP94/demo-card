@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { ScoreCategory, ScoreType, ScorecardSectionData, getScoreTypeDisplayName } from "@/app/types";
 import { nanoid } from "nanoid";
+import { strings as s, interpolate as i } from "../../app/strings";
 
 export default function ScorecardSection(data: ScorecardSectionData) {
     
@@ -29,7 +30,7 @@ export default function ScorecardSection(data: ScorecardSectionData) {
         const typeLabel = scoreCategory.scoreType.toString();
 
         const generateCheckboxDesciption = () => {
-            let toggleSelectText = scoreCategory.scoreType == selectedScoreType ? "Deselect" : "Select";
+            let toggleSelectText = scoreCategory.scoreType == selectedScoreType ? s['yacht.deselect'] : s['yacht.select'];
             return `${toggleSelectText} ${getScoreTypeDisplayName(scoreCategory.scoreType)} for ${scoreCategory.score} points`
         }
 
@@ -82,7 +83,7 @@ export default function ScorecardSection(data: ScorecardSectionData) {
 
     const openHighScoreResetPrompt = () =>
     {
-        if (confirm("Are you sure you want to reset your high score?")) {
+        if (confirm(s['yacht.resetConfirmationPrompt'])) {
             data.resetHighScore();
           }
     }
@@ -100,9 +101,9 @@ export default function ScorecardSection(data: ScorecardSectionData) {
             <div className="score-report-section">
                 <div className="scores">
                     <span>Score: {data.score}</span>
-                    <span className="clickable" onClick={() => openHighScoreResetPrompt()} title="click to reset">High Score: {data.highScore}</span>
+                    <span className="clickable" onClick={() => openHighScoreResetPrompt()} title={s['yacht.reset.screenReaderMessage']}>{i('yacht.highScoreInterpolated', data.highScore.toString())}</span>
                 </div>
-                <button className="action-button" onClick={onScoreSubmitted} disabled={selectedScoreType === null || data.arePointsSubmitted} data-message="Submit score for selected category">Submit</button>
+                <button className="action-button" onClick={onScoreSubmitted} disabled={selectedScoreType === null || data.arePointsSubmitted} data-message={s['yacht.submitScore.screenReaderMessage']}>{s['yacht.submitScore']}</button>
             </div>
         </div>
     )

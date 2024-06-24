@@ -1,6 +1,7 @@
 import React from "react";
 import Die from "./die";
 import { DiceSectionData } from "@/app/types";
+import { strings as s, interpolate as i } from "../../app/strings";
 
 export default function DiceSection(data: DiceSectionData) {
 
@@ -9,7 +10,7 @@ export default function DiceSection(data: DiceSectionData) {
       ));
 
     const generateRollsLeftDescription = () => {
-        return data.rollsLeft === 1 ? "1 roll left" : `${data.rollsLeft} rolls left`
+        return data.rollsLeft === 1 ? s['yacht.oneRollLeft'] : i('yacht.rollsLeftInterpolated', data.rollsLeft.toString());
     }
 
     return (
@@ -31,7 +32,7 @@ export default function DiceSection(data: DiceSectionData) {
                     </div>
                 </div>
             </div>
-            <button className="action-button" onClick={data.rollDice} disabled={(data.rollsLeft < 1 && !data.arePointsSubmitted) || data.isRolling} data-message="Roll dice">{data.rollText}</button>
+            <button className="action-button" onClick={data.rollDice} disabled={(data.rollsLeft < 1 && !data.arePointsSubmitted) || data.isRolling} data-message={s['yacht.roll.screenReaderMessage']}>{data.rollText}</button>
             <div className="roll-tracking" data-message={generateRollsLeftDescription()}>
             <div className={data.rollsLeft < 3 ? 'roll-box active' : 'roll-box inactive'}></div>
             <div className={data.rollsLeft < 2 ? 'roll-box active' : 'roll-box inactive'}></div>
