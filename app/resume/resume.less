@@ -1,13 +1,10 @@
 .resume-page {
-    height: 98%;
-    width: 750px;
+    width: 780px;
+    padding-top: 4px;
     margin: auto;
     background-color: #FFF;
     border-radius: 1rem;
-
-    .light {
-        font-weight: lighter;
-    }
+    font-size: 14px;
 
     .icon {
         width: 1rem;
@@ -43,138 +40,113 @@
             background-image:url(./github.svg)
         }
     }
-
-    .top-section {
-        display: flex;
-        align-items: center;
-    }
-
-    .section {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        font-size: 1rem;
-        
-        .section-label {
-            display: flex;
-            font-size: 1.4rem;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 0.25rem;
-
-            .underline {
-                display: block;
-                width: 100px;
-                height: 2px;
-                background-color: #394158;
-                margin: auto;
-            }
-        }
-
-        .sub-info {
-            font-size: 0.75rem;
-            font-weight: 200;
-        }
-    }
-
-    .namecard, .top-section {
-        width: 100%;
-        height: 3rem;
-        border-bottom: 0.25rem solid #4366B2;
-    }
-
+    
     .resume-container {
         display: flex;
-        flex-direction: row;
-        width: 96%;
-        height: 96%;
-        margin: 2%;
-
-        .left-column {
-            width: 235px;
-            flex-shrink: 0;
-            border-right: 0.25rem solid #4366B2;
-
-            .namecard {
+        flex-grow: 1;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0.5rem 0 1.5rem 0;
+    
+        .section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 0.9rem;
+            padding: 0.25rem 0.5rem 0 0.5rem;
+            
+            .section-label {
                 display: flex;
-                background-color: #CCD4EB;
-                border-top-left-radius: 1rem;
-                justify-content: center;
-
-                .name {
-                    font-size: 2rem;
-                    color: #394158;
-                }
-            }
-
-            .section-container {
-                display: flex;
+                font-size: 1.2rem;
                 flex-direction: column;
                 align-items: center;
-                justify-content: space-around;
-                height: 94%;
+                font-weight: 600;
+                margin: 0.25rem 0;
 
-                .contact {
-                    align-self: baseline;
-                }
-
-                .skills {
-                    .skill-section-label {
-                        align-self: flex-start;
-                    }
-                    ul {
-                        list-style-type: none;
-                        align-self: flex-start;
-                        margin-left: 25px;
-                        padding: 0;
-                    }
-                }
-            }
-
-            ul {
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
-            }
-        }
-
-        .right-column {
-            flex-grow: 2;
-
-            .top-section {
-                .role {
-                    font-size: 1.8rem;
+                .underline {
+                    display: block;
+                    width: 100px;
+                    height: 2px;
+                    background-color: #394158;
                     margin: auto;
                 }
             }
 
-            .work-section {
-                height: 94%;
-                padding-top: 0.25rem;
+            ul {
+                padding-right: 1.5rem;
+                margin: 0;
+            }
+        }
+            
+        .header {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #4366B2;
 
-                .work-title-section {
+            .horizontal-line {
+                display: block;
+                width: 25%;
+                height: 3px;
+                margin: 0 2rem;
+                background-color: #6086EF;
+            }
+        }
+
+        .contact {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            padding: 0.2rem 0;
+
+            .top, .bottom {
+                display: flex;
+                flex-direction: row;
+                gap: 1rem;
+                justify-content: center;
+                align-items: center;
+
+                div {
                     display: flex;
-                    flex-direction: column;
-                    padding-left: 0.75rem;
-
-                    .business-title {
-                        font-size: 20px;
-                    }
-
-                    .job-title {
-                        font-size: 16px;
-                    }
-
-                    .employment-dates {
-                        font-size: 14px;
-                        font-weight: 200;
-                    }
+                    justify-content: center;
                 }
+            }
+        }
 
-                ul {
-                    margin: 0;
-                    font-size: 15px;
-                    padding-left: 32px;
+        .summary {
+            .summary-text {
+                padding: 0 1rem;
+            }
+        }
+
+        .work {
+            .work-title-section {
+                display: flex;
+                flex-direction: row;
+                gap: 0.25rem;
+                font-size: 1rem;
+                font-weight: 600;
+                align-self: baseline;
+                padding-left: 1.225rem;
+            }
+        }
+
+        .education {
+            .college-info {
+                display: flex;
+                flex-direction: row;
+                gap: 0.25rem;
+
+                .college {
+                    font-weight: 600;
+                }
+                .degree {
+                    font-style: italic;
                 }
             }
         }

@@ -4,93 +4,101 @@ export default function ResumePage() {
   return (
     <div className="resume-page">
         <div className="resume-container">
-            <div className="left-column">
-                <div className="namecard">
-                    <span className="name">Anna Pinson</span>
+            <div className="header">
+                <div className="horizontal-line" />
+                <div className="name-container">
+                    <span>Anna Pinson</span>
                 </div>
-                <div className="section-container">
-                    <div className="contact section">
-                        <div className="section-label">
-                            <span>Contact</span>
-                            <div className="underline" />
-                        </div>
-                        <ul>
-                            <li><div className="location icon" />Greater Los Angeles Area, CA</li>
-                            <li><div className="email icon" />anna.c.pinson@gmail.com</li>
-                            <li><div className="phone icon" />(760) 613-1784</li>
-                            <li><div className="linkedin icon" />linkedin.com/in/anna-pinson</li>
-                            <li><div className="github icon" />github.com/AP94</li>
-                        </ul>
+                <div className="horizontal-line" />
+            </div>
+            <div className="contact">
+                <div className="top">
+                    <div>
+                        <div className="email icon" />
+                        <span>anna.c.pinson@gmail.com</span>
                     </div>
-                    <div className="skills section">
-                        <div className="section-label">
-                            <span>Skills</span>
-                            <div className="underline" />
-                        </div>
-                        <span className="skill-section-label"><i>{s['resume.skillSection.headerOne']}</i></span>
-                        <ul>
-                            <li>Typescript</li>
-                            <li>Javascript</li>
-                            <li>HTML</li>
-                            <li>CSS</li>
-                            <li>LESS</li>
-                            <li>AngularJS</li>
-                            <li>ReactJS</li>
-                            <li>YAML</li>
-                            <li>Cypress</li>
-                            <li>GIT</li>
-                            <li>Azure DevOps</li>
-                        </ul>
-                        <span className="skill-section-label"><i>{s['resume.skillSection.headerTwo']}</i></span>
-                        <ul>
-                            <li>C#</li>
-                            <li>Gulp</li>
-                            <li>SQL</li>
-                            <li>.Net</li>
-                            <li>C++</li>
-                            <li>AWS</li>
-                            <li>PowerBI</li>
-                        </ul>
+                    <div>
+                        <div className="phone icon" />
+                        <span>(760) 613-1784</span>
                     </div>
-                    <div className="education section">
-                        <div className="section-label">
-                            <span>{s['resume.education.header']}</span>
-                            <div className="underline" />
-                        </div>
-                        <span><b>Harvey Mudd College</b></span>
-                        <span>B. S. in Computer Science</span>
-                        <span className="sub-info">2012-2016, Claremont CA</span>
+                    <div>
+                        <div className="location icon" />
+                        <span>Buena Park, CA</span>
+                    </div>
+                </div>
+                <div className="bottom">
+                    <div>
+                        <div className="github icon" />
+                        <span>github.com/AP94</span>
+                    </div>
+                    <div>
+                        <div className="linkedin icon" />
+                        <span>linkedin.com/in/anna-pinson</span>
                     </div>
                 </div>
             </div>
-            <div className="right-column">
-                <div className="top-section">
-                    <span className="role">{s['resume.role']}</span>
+            <div className="summary section">
+                <div className="section-label">
+                    <span>{s['resume.summary.header']}</span>
+                    <div className="underline" />
                 </div>
-                <div className="work-section">
-                    <div className="section">
-                        <div className="section-label">
-                            <span>{s['resume.experience.header']}</span>
-                            <div className="underline" />
-                        </div>
+                <span className="summary-text">{s['resume.summary']}</span>
+            </div>
+            <div className="skills section">
+                <div className="section-label">
+                    <span>{s['resume.skills.header']}</span>
+                    <div className="underline" />
+                </div>
+                <ul>
+                    <li>{s['resume.job.skill1']}</li>
+                    <li>{s['resume.job.skill2']}</li>
+                    <li>{s['resume.job.skill3']}</li>
+                    <li>{s['resume.job.skill4']}</li>
+                    <li>{s['resume.job.skill5']}</li>
+                    <li>{s['resume.job.skill6']}</li>
+                    <li>{s['resume.job.skill7']}</li>
+                    <li>{s['resume.job.skill8']}</li>
+                    <li>{s['resume.job.skill.tech1']}</li>
+                    <li>{s['resume.job.skill.tech2']}</li>
+                </ul>
+            </div>
+            <div className="work section">
+                <div className="section">
+                    <div className="section-label">
+                        <span>{s['resume.experience.header']}</span>
+                        <div className="underline" />
                     </div>
-                    <div className="work-title-section">
-                        <span className="business-title"><b>Laserfiche</b></span>
-                        <span className="job-title">{s['resume.job.title']}</span>
-                        <span className="employment-dates"><i>April 2017 - January 2024</i></span>
-                    </div>
-                    <ul>
-                        <li>{s['resume.job.task1']}</li>
-                        <li>{s['resume.job.task2']}</li>
-                        <li>{s['resume.job.task3']}</li>
-                        <li>{s['resume.job.task4']}</li>
-                        <li>{s['resume.job.task5']}</li>
-                        <li>{s['resume.job.task6']}</li>
-                        <li>{s['resume.job.task7']}</li>
-                        <li>{s['resume.job.task8']}</li>
-                        <li>{s['resume.job.task9']}</li>
-                        <li>{s['resume.job.task10']}</li>
-                    </ul>
+                </div>
+                <div className="work-title-section">
+                    <span className="job-title">{s['resume.job.title']}</span>
+                    <span>|</span>
+                    <span className="business-title">Laserfiche</span>
+                    <span>|</span>
+                    <span className="employment-dates"><i>April 2017 - January 2024</i></span>
+                </div>
+                <ul>
+                    <li>{s['resume.job.task1']}</li>
+                    <li>{s['resume.job.task2']}</li>
+                    <li>{s['resume.job.task3']}</li>
+                    <li>{s['resume.job.task4']}</li>
+                    <li>{s['resume.job.task5']}</li>
+                    <li>{s['resume.job.task6']}</li>
+                    
+                    {/* <li>{s['resume.job.task7']}</li>
+                    <li>{s['resume.job.task8']}</li>
+                    <li>{s['resume.job.task9']}</li>
+                    <li>{s['resume.job.task10']}</li> */}
+                </ul>
+            </div>
+            <div className="education section">
+                <div className="section-label">
+                    <span>{s['resume.education.header']}</span>
+                    <div className="underline" />
+                </div>
+                <div className="college-info">
+                    <span className="college">{s['resume.education.college']}</span>
+                    <span>|</span>
+                    <span className="degree">{s['resume.education.degree']}</span>
                 </div>
             </div>
         </div>
