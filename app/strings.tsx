@@ -26,7 +26,7 @@ export const strings: { [id: string]: string } = {
     'resume.job.skill5': "CI/CD pipeline development and migrations",
     'resume.job.skill6': "QA automation and integration into CI/CD solutions",
     'resume.job.skill7': "Performance analysis and optimization",
-    'resume.job.skill8': "Incorporating accessiblity and localization best practices into software design",
+    'resume.job.skill8': "Incorporating accessibility and localization best practices into software design",
     'resume.job.skill.tech1': 'Proficient in: Typescript, Javascript, HTML, CSS, LESS, AngularJS, ReactJS, YAML, Cypress, GIT, Azure Devops',
     'resume.job.skill.tech2': 'Familiar with: C#, C++, Gulp, TailwindCSS, SQL, .NET, AWS, PowerBI',
     'resume.job.title': 'Software Engineer III',
